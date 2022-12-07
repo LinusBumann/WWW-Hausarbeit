@@ -1,0 +1,15 @@
+import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
+
+const db = new DB("data/notes.sqlite");
+
+db.execute(`CREATE TABLE IF NOT EXISTS notes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    text TEXT,
+    date TEXT
+);
+INSERT INTO notes (title, text, date) 
+VALUES 
+('Type System Mythbusting with Alexis King', 'https://feeds.resonaterecordings.com/software-unscripted', '2022-09-14T12:23');
+`);
+db.close();
