@@ -119,7 +119,7 @@ export async function nike(ctx) {
   return ctx;
 }
 
-export async function dunkmodelle(ctx) {
+export async function dunkModelle(ctx) {
   debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("DunkModelle.html", {
     notes: ctx.data,

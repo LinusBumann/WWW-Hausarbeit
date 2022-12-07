@@ -17,20 +17,69 @@ const router = async (ctx) => {
   const url = new URL(ctx.request.url);
   const myRequest = ctx.request; //Request für Unterscheidung von POST und GET
 
+  //Index
   if (url.pathname == "/") {
     return await controller.index(ctx);
   }
+
+  //About
   if (url.pathname.match("/about")) {
     return await controller.about(ctx);
   }
-  if (url.pathname.match("/form")) {
-    if (myRequest.method == "GET") {
-      return await formController.add(ctx);
-    }
-    if (myRequest.method == "POST") {
-      return await formController.submitAdd(ctx);
-    }
+
+  //Adidas
+  if (url.pathname.match("/adidas")) {
+    return await controller.adidas(ctx);
   }
+  //Yezzy-V1
+  if (url.pathname.match("/Yeezyv1")) {
+    return await controller.yeezyv1(ctx);
+  }
+  //Yeezy-V2
+  if (url.pathname.match("/Yeezyv2")) {
+    return await controller.yeezyv2(ctx);
+  }
+
+  //Nike
+  if (url.pathname.match("/nike")) {
+    return await controller.nike(ctx);
+  }
+  //Jordan-1-Modelle
+  if (url.pathname.match("/Jordan1Modelle")) {
+    return await controller.jordan1Modelle(ctx);
+  }
+  //Jordan-3-Modelle
+  if (url.pathname.match("/Jordan3Modelle")) {
+    return await controller.jordan3Modelle(ctx);
+  }
+  //Jordan-4-Modelle
+  if (url.pathname.match("/Jordan4Modelle")) {
+    return await controller.jordan4Modelle(ctx);
+  }
+  //Dunk-Modelle
+  if (url.pathname.match("/DunkModelle")) {
+    return await controller.dunkModelle(ctx);
+  }
+
+  //Dokumentation
+  if (url.pathname.match("/dokumentation")) {
+    return await controller.dokumentation(ctx);
+  }
+  //Kollophon
+  if (url.pathname.match("/kollophon")) {
+    return await controller.kollophon(ctx);
+  }
+  //Kontakt
+  if (url.pathname.match("/kontakt")) {
+    return await controller.kontakt(ctx);
+  }
+
+  //Datenschutz
+  if (url.pathname.match("/datenschutz")) {
+    return await controller.datenschutz(ctx);
+  }
+
+  //404-Error
   return await controller.error404(ctx);
 };
 
@@ -60,7 +109,7 @@ export const handleRequest = async (request) => {
     return ctx.redirect;
   }
 
-  // Fallback
+  //Fallback
   result.response.status = result.response.status ?? 404;
   if (!result.response.body && result.response.status == 404) {
     result = await controller.error404(result);
