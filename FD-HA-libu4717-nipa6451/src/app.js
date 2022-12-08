@@ -76,7 +76,7 @@ const router = async (ctx) => {
 
   //Datenschutz
   if (url.pathname.match("/datenschutz")) {
-    return await controller.datenschutz(ctx);
+    return await controller.datenschutzs(ctx);
   }
 
   //404-Error
