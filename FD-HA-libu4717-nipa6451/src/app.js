@@ -1,6 +1,8 @@
 import notes from "../data/notes.json" assert { type: "json" };
 import nunjucks from "https://deno.land/x/nunjucks@3.2.3/mod.js";
 import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
+import * as path from "https://deno.land/std@0.152.0/path/posix.ts";
+import * as mediaTypes from "https://deno.land/std@0.151.0/media_types/mod.ts";
 
 import * as controller from "./controller.js";
 import * as formController from "./form-controller.js";
@@ -14,6 +16,7 @@ nunjucks.configure("templates", { autoescape: true, noCache: true });
  */
 //Router an die Aufgabe anpassen
 const router = async (ctx) => {
+  if (ctx.response.status == 200) return ctx;
   const url = new URL(ctx.request.url);
   const myRequest = ctx.request; //Request für Unterscheidung von POST und GET
 
@@ -83,9 +86,31 @@ const router = async (ctx) => {
   return await controller.error404(ctx);
 };
 
+const serveStaticFile = async (base, ctx) => {
+  const url = new URL(ctx.request.url);
+  let file;
+  try {
+    console.log(path.join(base, url.pathname.toString()));
+    file = await Deno.open(path.join(base, url.pathname.toString()), {
+      read: true,
+    });
+  } catch (_error) {
+    return ctx;
+  }
+  const { ext } = path.parse(url.pathname.toString());
+  const contentType = mediaTypes.contentType(ext);
+  if (contentType) {
+    ctx.response.status = 200;
+    ctx.response.body = file.readable; // Use readable stream ctx.response.headers["Content-type"] = contentType; ctx.response.status = 200;
+  } else {
+    Deno.close(file.rid);
+  }
+  return ctx;
+};
+
 export const handleRequest = async (request) => {
   const db = new DB("data/notes.sqlite", { mode: "read" });
-  const ctx = {
+  let ctx = {
     data: db.queryEntries("SELECT * FROM notes"),
     nunjucks: nunjucks,
     request: request,
@@ -97,6 +122,9 @@ export const handleRequest = async (request) => {
     },
   };
   db.close();
+
+  const base = "assets";
+  ctx = await serveStaticFile(base, ctx);
 
   /**
    * Call the router function and assign result.
