@@ -1,0 +1,5 @@
+- Login
+- Nunjucks (z.B.: Default-Preset für Schuhupload)
+- Datenbanken (Login)
+- Dateiupload/Bearbeiten in Form von einzelnen Schuhen (Überschrift, Fließtext und Bild)
+- Kommentarfunktion für User bei einzelnen Schuhen
