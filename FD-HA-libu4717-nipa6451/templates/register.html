@@ -24,25 +24,37 @@
     </header>
 
     <main class="kMain">
-      <form action="https://www.inf.hs-flensburg.de/echo/" method="post">
+      <form action="#" method="POST">
         <h1>Registrieren</h1>
         <div class="input_container">
-          <label for="EMail"></label>
-          <input type="text" name="E-Mail" id="EMail" placeholder="E-Mail" />
-
-          <label for="Vorname"></label>
-          <input type="text" name="E-Mail" id="vorname" placeholder="Vorname" />
-          <label for="Nachname"></label>
           <input
             type="text"
-            name="E-Mail"
+            name="email"
+            id="email"
+            placeholder="E-Mail"
+            value="paulsenNN"
+          />
+          <input
+            type="text"
+            name="vorname"
+            id="vorname"
+            placeholder="Vorname"
+            value="paulsenNN"
+          />
+          <input
+            type="text"
+            name="nachname"
             id="nachname"
             placeholder="Nachname"
+            value="paulsenNN"
           />
-          <label for="password"></label>
-          <input type="password" id="nn" placeholder="Passwort" />
-          <label for="password"></label>
-          <input type="password" id="nn" placeholder="Passwort bestätigen" />
+          <input
+            type="passwort"
+            name="passwort"
+            id="passwort"
+            placeholder="Passwort"
+            value="paulsenNN"
+          />
         </div>
         <input class="Senden" type="submit" value="Registrieren" />
       </form>

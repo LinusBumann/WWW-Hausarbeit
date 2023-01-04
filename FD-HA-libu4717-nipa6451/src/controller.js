@@ -26,7 +26,7 @@ export async function index(ctx) {
   });
   ctx.response.status = 200;
   ctx.response.headers["content-type"] = "text/html";
-  //console.log(ctx.data);
+  console.log(ctx.data);
   return ctx;
 }
 

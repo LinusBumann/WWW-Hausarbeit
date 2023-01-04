@@ -88,7 +88,14 @@ const router = async (ctx) => {
   }
   //Register
   if (url.pathname.match("/register")) {
-    return await controller.register(ctx);
+    if (myRequest.method == "GET") {
+      console.log("GET");
+      return await formController.add(ctx);
+    }
+    if (myRequest.method == "POST") {
+      console.log("POST");
+      return await formController.submitAdd(ctx);
+    }
   }
   //404-Error
   return await controller.error404(ctx);
@@ -117,9 +124,9 @@ const serveStaticFile = async (base, ctx) => {
 };
 
 export const handleRequest = async (request) => {
-  const db = new DB("data/notes.sqlite", { mode: "read" });
+  const db = new DB("data/userdata.sqlite", { mode: "read" });
   let ctx = {
-    data: imageData,
+    data: db.queryEntries("SELECT * FROM userdata"),
     nunjucks: nunjucks,
     request: request,
     params: {},

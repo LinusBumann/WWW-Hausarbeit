@@ -29,15 +29,16 @@ export const getById = (data, id) => data[id];
  * @param {Object} formData – Note to add.
  */
 export const add = (formData) => {
-  const db = new DB("data/notes.sqlite");
-  const title = formData.get("title");
-  const date = formData.get("date");
-  const text = formData.get("text");
-  db.query(`INSERT INTO notes (date, title, text) VALUES (?, ?, ?);`, [
-    date,
-    title,
-    text,
-  ]);
+  const db = new DB("data/userdata.sqlite");
+  const vorname = formData.get("vorname");
+  console.log(vorname);
+  const nachname = formData.get("nachname");
+  const email = formData.get("email");
+  const passwort = formData.get("passwort");
+  db.query(
+    `INSERT INTO userdata (vorname, nachname, email, passwort) VALUES (?, ?, ?, ?);`,
+    [vorname, nachname, email, passwort]
+  );
   db.close();
 };
 
