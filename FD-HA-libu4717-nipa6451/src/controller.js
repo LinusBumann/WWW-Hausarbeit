@@ -22,10 +22,11 @@ export function about(ctx) {
 export async function index(ctx) {
   debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("index.html", {
-    notes: ctx.data,
+    imageData: ctx.data,
   });
   ctx.response.status = 200;
   ctx.response.headers["content-type"] = "text/html";
+  //console.log(ctx.data);
   return ctx;
 }
 
@@ -152,6 +153,26 @@ export async function jordan3Modelle(ctx) {
 export async function jordan4Modelle(ctx) {
   debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("Jordan4Modelle.html", {
+    notes: ctx.data,
+  });
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function login(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("login.html", {
+    notes: ctx.data,
+  });
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function register(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("register.html", {
     notes: ctx.data,
   });
   ctx.response.status = 200;

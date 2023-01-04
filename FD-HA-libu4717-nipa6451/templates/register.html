@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styleHA.css" />
-    <title>Kontaktformular</title>
+    <title>Registrieren</title>
   </head>
   <body>
     <header class="header">
@@ -16,9 +16,8 @@
         <ul class="navUL">
           <li><a href="UnterseitenMarken/nike.html">Nike</a></li>
           <li><a href="UnterseitenMarken/adidas.html">Adidas</a></li>
-
           <li><a href="aboutUs.html">About Us</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="login.html"></a>Login</li>
         </ul>
       </nav>
       <div class="backgroundBox"></div>
@@ -26,27 +25,26 @@
 
     <main class="kMain">
       <form action="https://www.inf.hs-flensburg.de/echo/" method="post">
-        <h1>Kontaktiere uns</h1>
+        <h1>Registrieren</h1>
         <div class="input_container">
-          <label for="vn"></label>
-          <input type="text" name="Vorname" id="vn" placeholder="Vorname" />
-
-          <label for="nn"></label>
-          <input type="text" name="Nachname" id="nn" placeholder="Nachname" />
-
           <label for="EMail"></label>
           <input type="text" name="E-Mail" id="EMail" placeholder="E-Mail" />
 
-          <label for="Nachr"></label>
+          <label for="Vorname"></label>
+          <input type="text" name="E-Mail" id="vorname" placeholder="Vorname" />
+          <label for="Nachname"></label>
           <input
-            class="nachricht"
-            name="Nachricht"
-            id="Nachr"
             type="text"
-            placeholder="Nachricht"
+            name="E-Mail"
+            id="nachname"
+            placeholder="Nachname"
           />
+          <label for="password"></label>
+          <input type="password" id="nn" placeholder="Passwort" />
+          <label for="password"></label>
+          <input type="password" id="nn" placeholder="Passwort bestätigen" />
         </div>
-        <input class="Senden" type="submit" value="Submit" />
+        <input class="Senden" type="submit" value="Registrieren" />
       </form>
     </main>
 

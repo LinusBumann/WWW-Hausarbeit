@@ -1,12 +1,6 @@
 [
     {
-      "title": "WWW-Prog",
-      "text": "Aufgabe für Formular schreiben",
-      "date": "2022-10-27T13:45"
-    },
-    {
-      "title": "Type System Mythbusting with Alexis King",
-      "text": "https://feeds.resonaterecordings.com/software-unscripted",
-      "date": "2022-09-14T12:23"
+        "pic_id": 1,
+        "full_path":  "/Bilder/logos/nike.png"
     }
-  ]
+]

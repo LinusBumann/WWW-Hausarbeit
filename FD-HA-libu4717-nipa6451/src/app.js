@@ -1,4 +1,5 @@
 import notes from "../data/notes.json" assert { type: "json" };
+import imageData from "../data/notes.json" assert { type: "json" };
 import nunjucks from "https://deno.land/x/nunjucks@3.2.3/mod.js";
 import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
 import * as path from "https://deno.land/std@0.152.0/path/posix.ts";
@@ -81,7 +82,14 @@ const router = async (ctx) => {
   if (url.pathname.match("/datenschutz")) {
     return await controller.datenschutz(ctx);
   }
-
+  //Login
+  if (url.pathname.match("/login")) {
+    return await controller.login(ctx);
+  }
+  //Register
+  if (url.pathname.match("/register")) {
+    return await controller.register(ctx);
+  }
   //404-Error
   return await controller.error404(ctx);
 };
@@ -111,7 +119,7 @@ const serveStaticFile = async (base, ctx) => {
 export const handleRequest = async (request) => {
   const db = new DB("data/notes.sqlite", { mode: "read" });
   let ctx = {
-    data: db.queryEntries("SELECT * FROM notes"),
+    data: imageData,
     nunjucks: nunjucks,
     request: request,
     params: {},

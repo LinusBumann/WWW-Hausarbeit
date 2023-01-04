@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styleHA.css" />
-    <title>Kontaktformular</title>
+    <title>Login</title>
   </head>
   <body>
     <header class="header">
@@ -18,7 +18,6 @@
           <li><a href="UnterseitenMarken/adidas.html">Adidas</a></li>
 
           <li><a href="aboutUs.html">About Us</a></li>
-          <li><a href="login.html">Login</a></li>
         </ul>
       </nav>
       <div class="backgroundBox"></div>
@@ -26,25 +25,14 @@
 
     <main class="kMain">
       <form action="https://www.inf.hs-flensburg.de/echo/" method="post">
-        <h1>Kontaktiere uns</h1>
+        <h1>Login</h1>
         <div class="input_container">
-          <label for="vn"></label>
-          <input type="text" name="Vorname" id="vn" placeholder="Vorname" />
-
-          <label for="nn"></label>
-          <input type="text" name="Nachname" id="nn" placeholder="Nachname" />
-
           <label for="EMail"></label>
           <input type="text" name="E-Mail" id="EMail" placeholder="E-Mail" />
 
-          <label for="Nachr"></label>
-          <input
-            class="nachricht"
-            name="Nachricht"
-            id="Nachr"
-            type="text"
-            placeholder="Nachricht"
-          />
+          <label for="password"></label>
+          <input type="password" id="nn" placeholder="Passwort" />
+          <a href="register.html">Registrieren</a>
         </div>
         <input class="Senden" type="submit" value="Submit" />
       </form>
