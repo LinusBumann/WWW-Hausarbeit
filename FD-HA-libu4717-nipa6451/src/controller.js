@@ -22,11 +22,13 @@ export function about(ctx) {
 export async function index(ctx) {
   debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("index.html", {
-    imageData: ctx.data,
+    imageData: ctx.imageData,
   });
+
   ctx.response.status = 200;
   ctx.response.headers["content-type"] = "text/html";
-  console.log(ctx.data);
+  //console.log(ctx.imageData[0].full_path);
+  console.log(ctx.imageData);
   return ctx;
 }
 

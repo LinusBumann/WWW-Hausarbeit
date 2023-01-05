@@ -7,7 +7,7 @@ import * as mediaTypes from "https://deno.land/std@0.151.0/media_types/mod.ts";
 
 import * as controller from "./controller.js";
 import * as formController from "./form-controller.js";
-import { add } from "./model.js";
+import { addRegister } from "./model.js";
 
 // DEV only: noCache:true
 nunjucks.configure("templates", { autoescape: true, noCache: true });
@@ -82,19 +82,27 @@ const router = async (ctx) => {
   if (url.pathname.match("/datenschutz")) {
     return await controller.datenschutz(ctx);
   }
-  //Login
-  if (url.pathname.match("/login")) {
-    return await controller.login(ctx);
-  }
-  //Register
+
+  //Register GET und POST
   if (url.pathname.match("/register")) {
     if (myRequest.method == "GET") {
       console.log("GET");
-      return await formController.add(ctx);
+      return await formController.addRegister(ctx);
     }
     if (myRequest.method == "POST") {
       console.log("POST");
-      return await formController.submitAdd(ctx);
+      return await formController.submitAddRegister(ctx);
+    }
+  }
+
+  if (url.pathname.match("/login")) {
+    if (myRequest.method == "GET") {
+      console.log("GET");
+      return await formController.addLogin(ctx);
+    }
+    if (myRequest.method == "POST") {
+      console.log("POST");
+      return await formController.submitAddLogin(ctx);
     }
   }
   //404-Error
@@ -125,8 +133,10 @@ const serveStaticFile = async (base, ctx) => {
 
 export const handleRequest = async (request) => {
   const db = new DB("data/userdata.sqlite", { mode: "read" });
+  const imgDB = new DB('data/imageData.sqlite', { mode: "read" });
   let ctx = {
     data: db.queryEntries("SELECT * FROM userdata"),
+    imageData: imgDB.queryEntries("SELECT * FROM imageData"),
     nunjucks: nunjucks,
     request: request,
     params: {},
@@ -137,7 +147,8 @@ export const handleRequest = async (request) => {
     },
   };
   db.close();
-
+  imgDB.close();
+  
   const base = "assets";
   ctx = await serveStaticFile(base, ctx);
 

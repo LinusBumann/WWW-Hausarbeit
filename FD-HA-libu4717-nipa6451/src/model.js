@@ -28,7 +28,7 @@ export const getById = (data, id) => data[id];
  * @param {Object[]} data – All notes.
  * @param {Object} formData – Note to add.
  */
-export const add = (formData) => {
+export const addRegister = (formData) => {
   const db = new DB("data/userdata.sqlite");
   const vorname = formData.get("vorname");
   console.log(vorname);
@@ -41,6 +41,28 @@ export const add = (formData) => {
   );
   db.close();
 };
+
+/*export const addLogin = (formData) => {
+  const db = new DB("data/userdata.sqlite");
+  const email = formData.get("email");
+  const passwort = formData.get("passwort");
+  db.query(
+    "SELECT * FROM userdata WHERE email = ? AND passwort = ?",
+    [username, passwort],
+    function (error, results) {
+      if (error) {
+        //res.send({ error: "An error occurred" });
+      } else if (results.length > 0) {
+        // login was successful, generate an authorization token
+        //const authToken = generateAuthToken();
+        //res.send({ authToken: authToken });
+      } else {
+        // res.send({ error: "Invalid login credentials" });
+      }
+    }
+  );
+  db.close();
+};*/
 
 /**
  * Update a note.

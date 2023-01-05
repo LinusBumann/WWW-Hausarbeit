@@ -4,14 +4,7 @@
   --gray: #b6b6b6;
   --darkGray: #757575;
 }
-@font-face {
-  font-family: Lobster;
-  src: url("Fonts/Lobster/Lobster-Regular.ttf") format("opentype");
-}
-@font-face {
-  font-family: Lato;
-  src: url("Fonts/Lato/Lato-Black.ttf") format("opentype");
-}
+
 * {
   margin: 0;
   padding: 0;
@@ -56,7 +49,7 @@ a {
 
 .backgroundTop {
   grid-area: back;
-  background-image: url(Bilder/basketball.jpg);
+
   height: 1200px;
   width: 110%;
   background-repeat: no-repeat;
