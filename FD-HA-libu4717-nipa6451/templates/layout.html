@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formular</title>
-  <style>
-    body {
-      font-family: Cargan, sans-serif;
-    }
-
-    form {
-      display: grid;
-      grid-gap: 1em;
-      grid-template-columns: max-content minmax(min-content, 600px);
-    }
-
-    input,
-    textarea,
-    button {
-      font-size: inherit;
-    }
-
-    .Form-error {
-      margin-top: 0;
-      margin-bottom: 0.5em;
-    }
-  </style>
-  </style>
-</head>
-
-<body>
-  <p>Notes</p>
-  <h2>Available paths</h2>
-  <ul>
-    <li><a href="/">Sneak Peek-Startseite</a></li>
-    <li><a href="/aboutUs">About us</a></li>
-  </ul>
-  {%block content%}
-  {%endblock%}
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formular</title>
+    <link rel="stylesheet" type="text/css" href="/css/styleHA.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="logo">Sneak Peek</a>
+      <input class="checkbox" type="checkbox" id="checkbox" />
+      <label for="checkbox" class="hamburger">&#9776;</label>
+      <nav>
+        <ul class="navUL">
+          <li><a href="nike.html">Nike</a></li>
+          <li><a href="adidas.html">Adidas</a></li>
+          <li><a href="aboutUs.html">About Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+      <div class="backgroundBox"></div>
+    </header>
+    {%block content%} {%endblock%}
+    <footer>
+      <ul class="nicoImp">
+        <li><strong>Nico Paulsen</strong></li>
+        <li>Glücksburger Straße 81</li>
+        <li>24943 Flensburg</li>
+        <li>Matrikelnummer: 671112</li>
+      </ul>
+      <ul class="linusImp">
+        <li><strong>Linus Bumann</strong></li>
+        <li>Brixstrasse 19</li>
+        <li>24943 Flensburg</li>
+        <li>Matrikelnummer: 690869</li>
+      </ul>
+      <ul class="hsImp">
+        <li><strong>Hochschule Flensburg</strong></li>
+        <li>Kanzleistraße 91-93</li>
+        <li>24943 Flensburg</li>
+        <li>Fach: Frontend-Design</li>
+      </ul>
+      <img src="Bilder/hsLogo.png" alt="hsLogo" />
+      <ul class="duku">
+        <li><a href="dokumentation.html">Dokumentation</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="kollophon.html">Kollophon</a></li>
+      </ul>
+    </footer>
+    <a href="#top" id="button"
+      ><p><i class="arrow up"></i></p
+    ></a>
+  </body>
 </html>

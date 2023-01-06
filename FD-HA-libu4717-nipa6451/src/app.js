@@ -131,13 +131,11 @@ const serveStaticFile = async (base, ctx) => {
   return ctx;
 };
 
-const db = new DB("data/userdata.sqlite", { mode: "read" });
+const db = new DB("data/sneakpeakdata.sqlite");
 
 export const handleRequest = async (request) => {
-  const imgDB = new DB("data/imageData.sqlite", { mode: "read" });
   let ctx = {
     db: db,
-    imageData: imgDB.queryEntries("SELECT * FROM imageData"),
     nunjucks: nunjucks,
     request: request,
     params: {},
@@ -147,8 +145,6 @@ export const handleRequest = async (request) => {
       headers: {},
     },
   };
-  db.close();
-  imgDB.close();
 
   const base = "assets";
   ctx = await serveStaticFile(base, ctx);

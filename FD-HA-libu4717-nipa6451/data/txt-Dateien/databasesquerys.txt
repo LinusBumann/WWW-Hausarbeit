@@ -1,0 +1,12 @@
+Indexseite:
+db.execute(`CREATE TABLE IF NOT EXISTS indexCards(
+    indexCardId INTEGER PRIMARY KEY AUTOINCREMENT,
+    brand TEXT,
+    imageLink TEXT,
+    indexText TEXT,
+    directLinkToModellCards TEXT
+);
+INSERT INTO indexCards(brand, imageLink, indexText, directLinkToModellCards)
+VALUES
+('Nike', 'Bilder/nike.png', 'Jeder kennt den coolen Schuh mit dem weltberühmten Swoosh. Die Marke Nike gibt es bereits seit 1971 und gilt seit 1989 als weltweit führender Sportartikel-Anbieter.', 'UnterseitenMarken/nike.html');
+`);

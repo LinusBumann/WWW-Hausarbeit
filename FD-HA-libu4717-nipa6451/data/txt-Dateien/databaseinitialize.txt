@@ -1,0 +1,36 @@
+import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
+
+const db = new DB("data/sneakpeakdata.sqlite");
+
+db.execute(`CREATE TABLE IF NOT EXISTS userdata (
+    userId INTEGER PRIMARY KEY AUTOINCREMENT,
+    vorname TEXT,
+    nachname TEXT,
+    email TEXT,
+    passwort TEXT
+);`);
+
+db.execute(`CREATE TABLE IF NOT EXISTS indexCards(
+    indexCardId INTEGER PRIMARY KEY AUTOINCREMENT,
+    brand TEXT,
+    imageLink TEXT,
+    indexText TEXT,
+    directLinkToModellCards TEXT
+);`);
+
+db.execute(`CREATE TABLE IF NOT EXISTS modellCards(
+    modellCardId INTEGER PRIMARY KEY AUTOINCREMENT,
+    modellName TEXT,
+    modellImageLink TEXT,
+    descriptionText TEXT,
+    directLinkToShoeCards TEXT
+);`);
+
+db.execute(`CREATE TABLE IF NOT EXISTS shoeCards(
+    shoeCardId INTEGER PRIMARY KEY AUTOINCREMENT,
+    shoeName TEXT,
+    shoeImageLink TEXT,
+    shoeText TEXT 
+);`);
+
+db.close();

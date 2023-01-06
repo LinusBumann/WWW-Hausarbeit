@@ -1,0 +1,38 @@
+1. Große Datenbank: sneakpeakdata.sqlite
+2. Enthaltene Tabellen:
+    - userData = Daten der User nach der Registrierung
+    - imageData = Daten zum korrekten Laden der Bilder
+    - indexCards = Cards auf der Indexseite
+    - modellCards = Cards auf der Seite des jeweiligen Herstellers
+    - shoeCards = Cards auf der Seite des jeweiligen Modells
+
+
+Inhalte: 
+
+    userData:
+        userId INTEGER PRIMARY KEY AUTOINCREMENT,
+        vorname TEXT,
+        nachname TEXT,
+        email TEXT,
+        passwort TEXT
+
+
+    indexCards:
+        indexCardId INTEGER PRIMARY KEY AUTOINCREMENT,
+        brand TEXT,
+        imageLink TEXT,
+        indexText TEXT,
+        directLinkToModellCards TEXT
+
+    modellCards:
+        modellCardId INTEGER PRIMARY KEY AUTOINCREMENT,
+        modellName TEXT,
+        modellImageLink TEXT,
+        descriptionText TEXT,
+        directLinkToShoeCards TEXT
+
+    shoeCards:
+        shoeCardId INTEGER PRIMARY KEY AUTOINCREMENT,
+        shoeName TEXT,
+        shoeImageLink TEXT,
+        shoeText TEXT 

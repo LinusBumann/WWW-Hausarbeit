@@ -5,20 +5,16 @@
     <h2>Learn more about Sneaker</h2>
 
     <div class="cardgrid">
-      {%for card in cards%}
+      {%for dbData in dbData%}
       <div class="card1">
         <div class="SchuhKarte">
-          <img class="nikelogo" src="Bilder/logos/adidas.png" alt="" />
+          <img class="nikelogo" src="{{dbData.imageLink}}" alt="" />
           <div class="farbBox"></div>
           <div class="content">
-            <h3>Nike</h3>
-            <p>
-              Jeder kennt den coolen Schuh mit dem weltberühmten Swoosh. Die
-              Marke Nike gibt es bereits seit 1971 und gilt seit 1989 als
-              weltweit führender Sportartikel-Anbieter.
-            </p>
+            <h3>{{dbData.brand}}</h3>
+            <p>{{dbData.indexText}}</p>
           </div>
-          <a class="nikebutton" href="UnterseitenMarken/nike.html"
+          <a class="nikebutton" href="{{dbData.directLinkToModellCards}}"
             >Mehr erfahren</a
           >
         </div>

@@ -15,6 +15,11 @@ import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
  */
 export const index = (data) => data;
 
+export const getIndexValues = (db) => {
+  const query = `SELECT * FROM indexCards`;
+  return db.queryEntries(query);
+};
+
 /**
  * Get one note.
  * @param {Object[]} data – All notes.
@@ -30,7 +35,6 @@ export const getById = (data, id) => data[id];
  */
 export const addRegister = (db, formData) => {
   const vorname = formData.get("vorname");
-  console.log(vorname);
   const nachname = formData.get("nachname");
   const email = formData.get("email");
   const passwort = formData.get("passwort");

@@ -17,8 +17,7 @@
   grid-template-areas:
     "back"
     "card1"
-    "card2"
-;
+    "card2";
   column-gap: 10px;
   row-gap: 10px;
   place-items: center;
@@ -34,6 +33,10 @@ h3 {
   text-align: center;
   line-height: 35px;
   font-size: 1.5em;
+}
+
+p {
+  font-size: 0.4em;
 }
 
 ul {
