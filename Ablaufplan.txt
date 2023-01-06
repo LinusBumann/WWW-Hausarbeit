@@ -3,3 +3,5 @@
 - Datenbanken (Login)
 - Dateiupload/Bearbeiten in Form von einzelnen Schuhen (Überschrift, Fließtext und Bild)
 - Kommentarfunktion für User bei einzelnen Schuhen
+
+- CSS anpassen auf Grid (sortiert die Karten dann selber ein)

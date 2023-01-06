@@ -1,0 +1,30 @@
+{% extends 'layout.html' %} {%block content%}
+<main class="mainIndex">
+  <div class="backgroundTop">
+    <h1>Welcome to Sneak Peek</h1>
+    <h2>Learn more about Sneaker</h2>
+
+    <div class="cardgrid">
+      {%for card in cards%}
+      <div class="card1">
+        <div class="SchuhKarte">
+          <img class="nikelogo" src="Bilder/logos/adidas.png" alt="" />
+          <div class="farbBox"></div>
+          <div class="content">
+            <h3>Nike</h3>
+            <p>
+              Jeder kennt den coolen Schuh mit dem weltberühmten Swoosh. Die
+              Marke Nike gibt es bereits seit 1971 und gilt seit 1989 als
+              weltweit führender Sportartikel-Anbieter.
+            </p>
+          </div>
+          <a class="nikebutton" href="UnterseitenMarken/nike.html"
+            >Mehr erfahren</a
+          >
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+  </div>
+</main>
+{%endblock%}

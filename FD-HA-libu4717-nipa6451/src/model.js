@@ -28,8 +28,7 @@ export const getById = (data, id) => data[id];
  * @param {Object[]} data – All notes.
  * @param {Object} formData – Note to add.
  */
-export const addRegister = (formData) => {
-  const db = new DB("data/userdata.sqlite");
+export const addRegister = (db, formData) => {
   const vorname = formData.get("vorname");
   console.log(vorname);
   const nachname = formData.get("nachname");
@@ -39,7 +38,6 @@ export const addRegister = (formData) => {
     `INSERT INTO userdata (vorname, nachname, email, passwort) VALUES (?, ?, ?, ?);`,
     [vorname, nachname, email, passwort]
   );
-  db.close();
 };
 
 /*export const addLogin = (formData) => {

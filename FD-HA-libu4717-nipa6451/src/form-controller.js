@@ -41,7 +41,7 @@ export async function submitAddRegister(ctx) {
 
   if (data.vorname && data.nachname && data.email && data.passwort) {
     console.log("Add aufgerufen");
-    model.addRegister(formData);
+    model.addRegister(ctx.db, formData);
     ctx.redirect = new Response(null, {
       status: 302,
       headers: { Location: "login.html" },
