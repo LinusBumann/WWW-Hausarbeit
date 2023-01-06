@@ -33,6 +33,7 @@ Inhalte:
 
     shoeCards:
         shoeCardId INTEGER PRIMARY KEY AUTOINCREMENT,
+        shoeVersion TEXT, 
         shoeName TEXT,
         shoeImageLink TEXT,
         shoeText TEXT 

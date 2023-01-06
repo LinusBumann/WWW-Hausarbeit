@@ -20,6 +20,19 @@ export const getIndexValues = (db) => {
   return db.queryEntries(query);
 };
 
+export const getModellValues = (db) => {
+  const query = `SELECT * FROM modellCards`;
+  return db.queryEntries(query);
+};
+
+export const getSchuhValues = (db, shoeVersion) => {
+  const query = `SELECT * FROM shoeCards WHERE`;
+  if (shoeVersion == "YeezyV1") {
+    query += `shoeVersion = YeezyV1`;
+  }
+  return db.queryEntries(query);
+};
+
 /**
  * Get one note.
  * @param {Object[]} data – All notes.

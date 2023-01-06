@@ -1,0 +1,15 @@
+{% extends 'layout.html' %} {%block content%}
+<main class="UnterseitenS1">
+  <h1 class="headerUnterseite">Yeezy v1 Modelle</h1>
+
+  {%for dbData in dbData%}
+  <div class="contentLot1">
+    <h2>{{dbData.shoeName}}</h2>
+    <p>{{dbData.shoeText}}</p>
+  </div>
+  <div class="imgLot1">
+    <img src="{{dbData.shoeImageLink}}" alt="" />
+  </div>
+  {%endfor%}
+</main>
+{%endblock%}

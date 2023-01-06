@@ -1,0 +1,26 @@
+{% extends 'layout.html' %} {%block content%}
+<main class="brandIndexS2">
+  <div class="backgroundTopAdidas">
+    <h1>Adidas</h1>
+    <h2>Hier findest du einige Modelle von Adidas und Yeezy</h2>
+  </div>
+
+  <div class="cardgrid">
+    {%for dbData in dbData%}
+    <div class="card1">
+      <div class="SchuhKarte">
+        <img class="shoePicture" src="{{dbData.modellImageLink}}" alt="" />
+        <div class="farbBox"></div>
+        <div class="content">
+          <h3>{{dbData.modellName}}</h3>
+          <p>{{dbData.descriptionText}}</p>
+        </div>
+        <a class="whiteButton" href="{{dbData.directLinkToShoeCards}}"
+          >Mehr erfahren</a
+        >
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</main>
+{%endblock%}

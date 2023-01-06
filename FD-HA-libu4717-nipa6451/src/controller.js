@@ -20,15 +20,41 @@ export function about(ctx) {
 }
 
 export async function index(ctx) {
-  console.log("@index. ctx %O", ctx.request.url);
+  debug("@index. ctx %O", ctx.request.url);
   const a = model.getIndexValues(ctx.db);
   ctx.response.body = ctx.nunjucks.render("nunjucksindex.html", {
     dbData: a,
   });
 
+  console.log(a);
+
   ctx.response.status = 200;
   ctx.response.headers["content-type"] = "text/html";
-  //console.log(a);
+  return ctx;
+}
+
+export async function nunjucksmarkenseite(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  const a = model.getModellValues(ctx.db);
+  ctx.response.body = ctx.nunjucks.render("nunjucksmarkenseite.html", {
+    dbData: a,
+  });
+
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function nunjucksschuhseite(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  const shoeVersion = "SELECT shoeVersion FROM shoeCards"; //Wie macht man das richtig?
+  const a = model.getSchuhValues(ctx.db, shoeVersion);
+  ctx.response.body = ctx.nunjucks.render("nunjucksschuhseite.html", {
+    dbData: a,
+  });
+
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
   return ctx;
 }
 
@@ -82,6 +108,7 @@ export async function kontakt(ctx) {
   return ctx;
 }
 
+/*
 export async function adidas(ctx) {
   debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("adidas.html", {
@@ -161,6 +188,7 @@ export async function jordan4Modelle(ctx) {
   ctx.response.headers["content-type"] = "text/html";
   return ctx;
 }
+*/
 
 export async function login(ctx) {
   debug("@index. ctx %O", ctx.request.url);

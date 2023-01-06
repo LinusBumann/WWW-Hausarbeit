@@ -1,5 +1,3 @@
-import notes from "../data/notes.json" assert { type: "json" };
-import imageData from "../data/notes.json" assert { type: "json" };
 import nunjucks from "https://deno.land/x/nunjucks@3.2.3/mod.js";
 import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
 import * as path from "https://deno.land/std@0.152.0/path/posix.ts";
@@ -23,7 +21,19 @@ const router = async (ctx) => {
 
   //Index
   if (url.pathname == "/") {
+    console.log("Index");
     return await controller.index(ctx);
+  }
+
+  //Nunjucks Markenseite
+  if (url.pathname.match("/nunjucksmarkenseite")) {
+    console.log("nunjucksmarkenseite");
+    return await controller.nunjucksmarkenseite(ctx);
+  }
+
+  //Nunjucks Markenseite
+  if (url.pathname.match("/nunjucksschuhseite")) {
+    return await controller.nunjucksschuhseite(ctx);
   }
 
   //About
@@ -31,6 +41,51 @@ const router = async (ctx) => {
     return await controller.about(ctx);
   }
 
+  //Dokumentation
+  if (url.pathname.match("/dokumentation")) {
+    return await controller.dokumentation(ctx);
+  }
+  //Kollophon
+  if (url.pathname.match("/kollophon")) {
+    return await controller.kollophon(ctx);
+  }
+  //Kontakt
+  if (url.pathname.match("/kontakt")) {
+    return await controller.kontakt(ctx);
+  }
+
+  //Datenschutz
+  if (url.pathname.match("/datenschutz")) {
+    return await controller.datenschutz(ctx);
+  }
+
+  //Register GET und POST
+  if (url.pathname.match("/register")) {
+    if (myRequest.method == "GET") {
+      console.log("GET");
+      return await formController.addRegister(ctx);
+    }
+    if (myRequest.method == "POST") {
+      console.log("POST");
+      return await formController.submitAddRegister(ctx);
+    }
+  }
+
+  //Login
+  if (url.pathname.match("/login")) {
+    if (myRequest.method == "GET") {
+      console.log("GET");
+      return await formController.addLogin(ctx);
+    }
+    if (myRequest.method == "POST") {
+      console.log("POST");
+      return await formController.submitAddLogin(ctx);
+    }
+  }
+  //404-Error
+  return await controller.error404(ctx);
+
+  /*
   //Adidas
   if (url.pathname.match("/adidas")) {
     return await controller.adidas(ctx);
@@ -64,49 +119,7 @@ const router = async (ctx) => {
   if (url.pathname.match("/DunkModelle")) {
     return await controller.dunkModelle(ctx);
   }
-
-  //Dokumentation
-  if (url.pathname.match("/dokumentation")) {
-    return await controller.dokumentation(ctx);
-  }
-  //Kollophon
-  if (url.pathname.match("/kollophon")) {
-    return await controller.kollophon(ctx);
-  }
-  //Kontakt
-  if (url.pathname.match("/kontakt")) {
-    return await controller.kontakt(ctx);
-  }
-
-  //Datenschutz
-  if (url.pathname.match("/datenschutz")) {
-    return await controller.datenschutz(ctx);
-  }
-
-  //Register GET und POST
-  if (url.pathname.match("/register")) {
-    if (myRequest.method == "GET") {
-      console.log("GET");
-      return await formController.addRegister(ctx);
-    }
-    if (myRequest.method == "POST") {
-      console.log("POST");
-      return await formController.submitAddRegister(ctx);
-    }
-  }
-
-  if (url.pathname.match("/login")) {
-    if (myRequest.method == "GET") {
-      console.log("GET");
-      return await formController.addLogin(ctx);
-    }
-    if (myRequest.method == "POST") {
-      console.log("POST");
-      return await formController.submitAddLogin(ctx);
-    }
-  }
-  //404-Error
-  return await controller.error404(ctx);
+ */
 };
 
 const serveStaticFile = async (base, ctx) => {
