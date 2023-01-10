@@ -33,7 +33,7 @@ const router = async (ctx) => {
     let fullURL = url.pathname;
     let split = fullURL.split("/");
     let herstellerID = split[2];
-    ctx.params.hersteller = Number(herstellerID);
+    ctx.params.herstellerID = Number(herstellerID);
     return await controller.baureihen(ctx);
   }
 

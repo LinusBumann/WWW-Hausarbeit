@@ -338,11 +338,6 @@ footer a:hover {
 .UnterseitenS1 {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.6fr 1fr;
-  grid-template-areas:
-    "headerU"
-    "img1"
-    "content1";
   place-items: center;
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: 80px;

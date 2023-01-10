@@ -1,15 +1,18 @@
 {% extends 'layout.html' %} {%block content%}
-<main class="UnterseitenS1">
-  <h1 class="headerUnterseite">{{dbData.baureiheName}}</h1>
-
-  {%for dbData in dbData%}
-  <div class="contentLot1">
-    <h2>{{dbData.schuhName}}</h2>
-    <p>{{dbData.schuhInfoText}}</p>
+<main class="mainIndex">
+  <div class="cardgrid">
+    {%for dbData in dbData%}
+    <div class="card1">
+      <div class="SchuhKarte">
+        <img class="shoePicture" src="{{dbData.schuhImageLink}}" alt="" />
+        <div class="farbBox"></div>
+        <div class="content">
+          <h3>{{dbData.schuhName}}</h3>
+          <p>{{dbData.schuhInfoText}}</p>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
   </div>
-  <div class="imgLot1">
-    <img src="{{dbData.schuhImageLink}}" alt="" />
-  </div>
-  {%endfor%}
 </main>
 {%endblock%}

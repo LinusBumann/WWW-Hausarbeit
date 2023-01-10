@@ -1,21 +1,23 @@
 {% extends 'layout.html' %} {%block content%}
 <main class="mainIndex">
   <div class="backgroundTopAdidas">
+    {%if dbData[0].herstellerName%}
     <h1>Adidas</h1>
-    <h2>Hier findest du einige Modelle von Adidas und Yeezy</h2>
+    <h2>Hier siehst du alle Schuhe von Adidas</h2>
+    {% endif %}
   </div>
 
   <div class="cardgrid">
-    {%for dbData in dbData%}
+    {%for data in dbData%}
     <div class="card1">
       <div class="SchuhKarte">
-        <img class="shoePicture" src="{{dbData.baureiheImageLink}}" alt="" />
+        <img class="shoePicture" src="{{data.baureiheImageLink}}" alt="" />
         <div class="farbBox"></div>
         <div class="content">
-          <h3>{{dbData.baureiheName}}</h3>
-          <p>{{dbData.baureiheDescriptionText}}</p>
+          <h3>{{data.baureiheName}}</h3>
+          <p>{{data.baureiheDescriptionText}}</p>
         </div>
-        <a class="whiteButton" href="/baureihe/{{dbData.baureiheID}}"
+        <a class="whiteButton" href="/baureihe/{{data.baureiheID}}"
           >Mehr erfahren</a
         >
       </div>

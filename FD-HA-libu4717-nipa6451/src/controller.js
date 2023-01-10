@@ -35,7 +35,7 @@ export async function index(ctx) {
 
 export async function baureihen(ctx) {
   debug("@index. ctx %O", ctx.request.url);
-  const a = model.getHersteller(ctx.db, ctx.params.hersteller);
+  const a = model.getHersteller(ctx.db, ctx.params.herstellerID);
   ctx.response.body = ctx.nunjucks.render("nunjucksmarkenseite.html", {
     dbData: a,
   });
