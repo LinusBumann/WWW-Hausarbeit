@@ -36,6 +36,36 @@ const router = async (ctx) => {
     return await controller.nunjucksschuhseite(ctx);
   }
 
+  //Farben
+  if (url.pathname.match("/_farben")) {
+    return await controller.farben(ctx);
+  }
+
+  //MainDoku
+  if (url.pathname.match("/mainDokumentation")) {
+    return await controller.mainDoku(ctx);
+  }
+
+  //Erklärung Nico
+  if (url.pathname.match("/Erklärung-nipa6451")) {
+    return await controller.erklärungNipa6451(ctx);
+  }
+
+  //Erklärung Linus
+  if (url.pathname.match("/Erklärung-libu4717")) {
+    return await controller.erklärungLibu4717(ctx);
+  }
+
+  //Timeline
+  if (url.pathname.match("/timeline")) {
+    return await controller.timeline(ctx);
+  }
+
+  //Module
+  if (url.pathname.match("/module")) {
+    return await controller.module(ctx);
+  }
+
   //About
   if (url.pathname.match("/about")) {
     return await controller.about(ctx);

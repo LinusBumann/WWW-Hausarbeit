@@ -12,13 +12,6 @@
 }
 .mainIndex {
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 1000px 1fr 1fr;
-  grid-template-areas:
-    "back"
-    "card1"
-    "card2";
-  column-gap: 10px;
   row-gap: 10px;
   place-items: center;
   border-bottom-left-radius: 80px;
@@ -32,11 +25,11 @@ h1 {
 h3 {
   text-align: center;
   line-height: 35px;
-  font-size: 1.5em;
+  font-size: 25px;
 }
 
 p {
-  font-size: 0.4em;
+  font-size: 16px;
 }
 
 ul {
@@ -51,8 +44,6 @@ a {
 }
 
 .backgroundTop {
-  grid-area: back;
-
   height: 1200px;
   width: 110%;
   background-repeat: no-repeat;
@@ -102,7 +93,7 @@ header {
   z-index: 2;
 }
 .backgroundBox {
-  width: 4000px;
+  width: 1000%;
   height: 90px;
   top: -62px;
   position: relative;
@@ -747,7 +738,6 @@ input::placeholder {
 }
 
 .backgroundTopAdidas {
-  grid-area: back;
   height: 1200px;
   width: 100%;
   background-repeat: no-repeat;
@@ -840,6 +830,7 @@ input::placeholder {
   position: relative;
   bottom: -70px;
   padding: 10px 20px 10px 20px;
+  font-size: 20px;
 }
 .SchuhKarte .orangeButton {
   background: rgb(254, 144, 0);
@@ -954,7 +945,7 @@ input::placeholder {
   place-items: center;
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: 80px;
-  margin: 0 10px 0 10px;
+  margin: 0 10px 10em 10px;
   padding: 0px 20px 40px 20px;
 }
 
@@ -1456,7 +1447,7 @@ input::placeholder {
 
   .SchuhKarte:hover .content {
     color: rgba(255, 255, 255, 1);
-    margin-right: 290px;
+    margin-right: 20%;
     transition: 0.7s;
   }
   .SchuhKarte:hover img {
@@ -1577,14 +1568,14 @@ input::placeholder {
   }
 
   .duku {
-    margin-top: 10%;
+    margin-top: 9em;
   }
 
   .nicoImp,
   .linusImp,
   .hsImp {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 9em;
     margin-right: 20px;
   }
 
@@ -1593,13 +1584,13 @@ input::placeholder {
     left: 0;
     height: 100px;
     width: 150px;
-    margin-top: 10%;
+    margin-top: 9em;
   }
   footer a {
     text-align: center;
     font-size: 1em;
     color: var(--white);
-    margin-top: 10%;
+    margin-top: 9em;
   }
   footer a:hover {
     color: var(--darkGray);
@@ -1853,18 +1844,12 @@ input::placeholder {
     grid-area: card6;
   }
   .backgroundBox {
-    width: 4000px;
+    width: 1000%;
     height: 70px;
     top: -31px;
   }
   .mainIndex {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 1200px 1fr;
-    grid-template-areas:
-      "back back"
-      "card1 card2";
-    column-gap: 10px;
     row-gap: 10px;
     place-items: center;
   }

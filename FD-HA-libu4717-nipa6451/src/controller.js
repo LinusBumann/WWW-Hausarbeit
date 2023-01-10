@@ -47,8 +47,7 @@ export async function nunjucksmarkenseite(ctx) {
 
 export async function nunjucksschuhseite(ctx) {
   debug("@index. ctx %O", ctx.request.url);
-  const shoeVersion = "SELECT shoeVersion FROM shoeCards"; //Wie macht man das richtig?
-  const a = model.getSchuhValues(ctx.db, shoeVersion);
+  const a = model.getSchuhValues(ctx.db);
   ctx.response.body = ctx.nunjucks.render("nunjucksschuhseite.html", {
     dbData: a,
   });
@@ -108,88 +107,6 @@ export async function kontakt(ctx) {
   return ctx;
 }
 
-/*
-export async function adidas(ctx) {
-  debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("adidas.html", {
-    notes: ctx.data,
-  });
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-
-export async function yeezyv1(ctx) {
-  debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("Yeezyv1.html", {
-    notes: ctx.data,
-  });
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-
-export async function yeezyv2(ctx) {
-  debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("Yeezyv2.html", {
-    notes: ctx.data,
-  });
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-
-export async function nike(ctx) {
-  debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("nike.html", {
-    notes: ctx.data,
-  });
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-
-export async function dunkModelle(ctx) {
-  debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("DunkModelle.html", {
-    notes: ctx.data,
-  });
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-
-export async function jordan1Modelle(ctx) {
-  debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("Jordan1Modelle.html", {
-    notes: ctx.data,
-  });
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-
-export async function jordan3Modelle(ctx) {
-  debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("Jordan3Modelle.html", {
-    notes: ctx.data,
-  });
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-
-export async function jordan4Modelle(ctx) {
-  debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("Jordan4Modelle.html", {
-    notes: ctx.data,
-  });
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-*/
-
 export async function login(ctx) {
   debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("login.html", {
@@ -203,6 +120,66 @@ export async function login(ctx) {
 export async function register(ctx) {
   debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("register.html", {
+    notes: ctx.data,
+  });
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function farben(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("_farben.html", {
+    notes: ctx.data,
+  });
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function mainDoku(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("mainDokumentation.html", {
+    notes: ctx.data,
+  });
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function erklärungNipa6451(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("Erklärung-nipa6451.html", {
+    notes: ctx.data,
+  });
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function erklärungLibu4717(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("Erklärung-libu4717.html", {
+    notes: ctx.data,
+  });
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function timeline(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("timeline.html", {
+    notes: ctx.data,
+  });
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
+export async function module(ctx) {
+  debug("@index. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("module.html", {
     notes: ctx.data,
   });
   ctx.response.status = 200;

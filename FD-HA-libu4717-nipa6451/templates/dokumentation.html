@@ -1,73 +1,17 @@
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Documentation Übersicht</title>
-    <link rel="stylesheet" href="/css/styleHA.css" />
-  </head>
-  <body>
-    <header class="header">
-      <a href="/" class="logo">Sneak Peek</a>
-      <input class="checkbox" type="checkbox" id="checkbox" />
-      <label for="checkbox" class="hamburger">&#9776;</label>
-      <nav>
-        <ul class="navUL">
-          <li><a href="UnterseitenMarken/nike.html">Nike</a></li>
-          <li><a href="UnterseitenMarken/adidas.html">Adidas</a></li>
-
-          <li><a href="aboutUs.html">About Us</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
-      </nav>
-      <div class="backgroundBox"></div>
-    </header>
-
-    <main class="mainDoku">
-      <h1>Dokumentation: Übersicht</h1>
-      <ul class="ulDoku">
-        <li><a href="dokumentation/dokumentation.html">Dokumentation</a></li>
-        <li><a href="dokumentation/_farben.html">Farben</a></li>
-        <li>
-          <a href="dokumentation/Erklärung-nipa6451.html">Erklärung Nico</a>
-        </li>
-        <li>
-          <a href="dokumentation/Erklärung-libu4717.html">Erklärung Linus</a>
-        </li>
-        <li><a href="dokumentation/timeline.html">Timeline</a></li>
-        <li><a href="dokumentation/module.html">Module</a></li>
-      </ul>
-    </main>
-    <footer>
-      <ul class="nicoImp">
-        <li><strong>Nico Paulsen</strong></li>
-        <li>Glücksburger Straße 81</li>
-        <li>24943 Flensburg</li>
-        <li>Matrikelnummer: 671112</li>
-      </ul>
-      <ul class="linusImp">
-        <li><strong>Linus Bumann</strong></li>
-        <li>Brixstrasse 19</li>
-        <li>24943 Flensburg</li>
-        <li>Matrikelnummer: 690869</li>
-      </ul>
-      <ul class="hsImp">
-        <li><strong>Hochschule Flensburg</strong></li>
-        <li>Kanzleistraße 91-93</li>
-        <li>24943 Flensburg</li>
-        <li>Fach: Frontend-Design</li>
-      </ul>
-      <img src="Bilder/hsLogo.png" alt="hsLogo" />
-      <ul class="duku">
-        <li><a href="dokumentation.html">Dokumentation</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="datenschutz.html">Datenschutz</a></li>
-        <li><a href="kollophon.html">Kollophon</a></li>
-      </ul>
-    </footer>
-    <a href="#top" id="button"
-      ><p><i class="arrow up"></i></p
-    ></a>
-  </body>
-</html>
+{% extends 'layout.html' %} {%block content%}
+<main class="mainDoku">
+  <h1>Dokumentation: Übersicht</h1>
+  <ul class="ulDoku">
+    <li><a href="mainDokumentation.html">Dokumentation</a></li>
+    <li><a href="_farben.html">Farben</a></li>
+    <li>
+      <a href="Erklärung-nipa6451.html">Erklärung Nico</a>
+    </li>
+    <li>
+      <a href="Erklärung-libu4717.html">Erklärung Linus</a>
+    </li>
+    <li><a href="timeline.html">Timeline</a></li>
+    <li><a href="module.html">Module</a></li>
+  </ul>
+</main>
+{%endblock%}

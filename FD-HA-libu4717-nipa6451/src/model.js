@@ -25,11 +25,12 @@ export const getModellValues = (db) => {
   return db.queryEntries(query);
 };
 
-export const getSchuhValues = (db, shoeVersion) => {
-  const query = `SELECT * FROM shoeCards WHERE`;
+export const getSchuhValues = (db) => {
+  const query = `SELECT * FROM shoeCards`;
+  /*const query = `SELECT * FROM shoeCards WHERE`;
   if (shoeVersion == "YeezyV1") {
     query += `shoeVersion = YeezyV1`;
-  }
+  }*/
   return db.queryEntries(query);
 };
 
