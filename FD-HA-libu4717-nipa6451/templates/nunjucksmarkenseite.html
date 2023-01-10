@@ -9,13 +9,13 @@
     {%for dbData in dbData%}
     <div class="card1">
       <div class="SchuhKarte">
-        <img class="shoePicture" src="{{dbData.modellImageLink}}" alt="" />
+        <img class="shoePicture" src="{{dbData.baureiheImageLink}}" alt="" />
         <div class="farbBox"></div>
         <div class="content">
-          <h3>{{dbData.modellName}}</h3>
-          <p>{{dbData.descriptionText}}</p>
+          <h3>{{dbData.baureiheName}}</h3>
+          <p>{{dbData.baureiheDescriptionText}}</p>
         </div>
-        <a class="whiteButton" href="{{dbData.directLinkToShoeCards}}"
+        <a class="whiteButton" href="/baureihe/{{dbData.baureiheID}}"
           >Mehr erfahren</a
         >
       </div>

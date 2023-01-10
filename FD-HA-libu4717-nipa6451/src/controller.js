@@ -33,9 +33,9 @@ export async function index(ctx) {
   return ctx;
 }
 
-export async function nunjucksmarkenseite(ctx) {
+export async function baureihen(ctx) {
   debug("@index. ctx %O", ctx.request.url);
-  const a = model.getModellValues(ctx.db);
+  const a = model.getHersteller(ctx.db, ctx.params.hersteller);
   ctx.response.body = ctx.nunjucks.render("nunjucksmarkenseite.html", {
     dbData: a,
   });
@@ -45,9 +45,9 @@ export async function nunjucksmarkenseite(ctx) {
   return ctx;
 }
 
-export async function nunjucksschuhseite(ctx) {
+export async function schuhe(ctx) {
   debug("@index. ctx %O", ctx.request.url);
-  const a = model.getSchuhValues(ctx.db);
+  const a = model.getSchuh(ctx.db, ctx.params.baureihe);
   ctx.response.body = ctx.nunjucks.render("nunjucksschuhseite.html", {
     dbData: a,
   });

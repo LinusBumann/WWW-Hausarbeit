@@ -26,14 +26,26 @@ const router = async (ctx) => {
   }
 
   //Nunjucks Markenseite
-  if (url.pathname.match("/nunjucksmarkenseite")) {
-    console.log("nunjucksmarkenseite");
-    return await controller.nunjucksmarkenseite(ctx);
+  //Beispielurl: hersteller/20
+  if (url.pathname.match("/hersteller")) {
+    console.log("Meine Baureihen URL: ", url.pathname);
+    //Auslesen der Hersteller-ID
+    let fullURL = url.pathname;
+    let split = fullURL.split("/");
+    let herstellerID = split[2];
+    ctx.params.hersteller = Number(herstellerID);
+    return await controller.baureihen(ctx);
   }
 
   //Nunjucks Markenseite
-  if (url.pathname.match("/nunjucksschuhseite")) {
-    return await controller.nunjucksschuhseite(ctx);
+  if (url.pathname.match("/baureihe")) {
+    console.log("Meine Schuh URL: ", url.pathname);
+    //Auslesen der Baureihe-ID
+    let fullURL = url.pathname;
+    let split = fullURL.split("/");
+    let baureiheID = split[2];
+    ctx.params.baureihe = Number(baureiheID);
+    return await controller.schuhe(ctx);
   }
 
   //Farben

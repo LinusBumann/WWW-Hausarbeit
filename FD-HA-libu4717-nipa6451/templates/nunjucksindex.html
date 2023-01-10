@@ -8,13 +8,13 @@
       {%for dbData in dbData%}
       <div class="card1">
         <div class="SchuhKarte">
-          <img class="nikelogo" src="{{dbData.imageLink}}" alt="" />
+          <img class="nikelogo" src="{{dbData.herstellerImageLink}}" alt="" />
           <div class="farbBox"></div>
           <div class="content">
-            <h3>{{dbData.brand}}</h3>
-            <p>{{dbData.indexText}}</p>
+            <h3>{{dbData.herstellerName}}</h3>
+            <p>{{dbData.herstellerText}}</p>
           </div>
-          <a class="whiteButton" href="{{dbData.directLinkToModellCards}}"
+          <a class="whiteButton" href="/hersteller/{{dbData.herstellerID}}"
             >Mehr erfahren</a
           >
         </div>

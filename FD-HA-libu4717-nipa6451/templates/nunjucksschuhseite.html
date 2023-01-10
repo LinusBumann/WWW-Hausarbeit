@@ -1,14 +1,14 @@
 {% extends 'layout.html' %} {%block content%}
 <main class="UnterseitenS1">
-  <h1 class="headerUnterseite">Yeezy v1 Modelle</h1>
+  <h1 class="headerUnterseite">{{dbData.baureiheName}}</h1>
 
   {%for dbData in dbData%}
   <div class="contentLot1">
-    <h2>{{dbData.shoeName}}</h2>
-    <p>{{dbData.shoeText}}</p>
+    <h2>{{dbData.schuhName}}</h2>
+    <p>{{dbData.schuhInfoText}}</p>
   </div>
   <div class="imgLot1">
-    <img src="{{dbData.shoeImageLink}}" alt="" />
+    <img src="{{dbData.schuhImageLink}}" alt="" />
   </div>
   {%endfor%}
 </main>

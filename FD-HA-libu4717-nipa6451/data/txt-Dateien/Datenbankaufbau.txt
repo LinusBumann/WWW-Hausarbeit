@@ -17,23 +17,23 @@ Inhalte:
         passwort TEXT
 
 
-    indexCards:
+    hersteller:
         indexCardId INTEGER PRIMARY KEY AUTOINCREMENT,
-        brand TEXT,
-        imageLink TEXT,
-        indexText TEXT,
-        directLinkToModellCards TEXT
+        herstellerName TEXT,
+        herstellerImageLink TEXT,
+        herstellerText TEXT,
 
-    modellCards:
+    baureihe:
         modellCardId INTEGER PRIMARY KEY AUTOINCREMENT,
-        modellName TEXT,
-        modellImageLink TEXT,
-        descriptionText TEXT,
-        directLinkToShoeCards TEXT
+        baureiheName TEXT,
+        baureiheImageLink TEXT,
+        baureihedescriptionText TEXT,
+        herstellerName TEXT (aus herstellertabelle),
 
-    shoeCards:
+    schuhe:
         shoeCardId INTEGER PRIMARY KEY AUTOINCREMENT,
-        shoeVersion TEXT, 
-        shoeName TEXT,
-        shoeImageLink TEXT,
-        shoeText TEXT 
+        schuhName TEXT,
+        schuhImageLink TEXT,
+        schuhText TEXT 
+        herstellerName TEXT (aus herstellertabelle),
+        

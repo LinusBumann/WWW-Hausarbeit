@@ -16,22 +16,18 @@ import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
 export const index = (data) => data;
 
 export const getIndexValues = (db) => {
-  const query = `SELECT * FROM indexCards`;
+  const query = `SELECT * FROM hersteller`;
   return db.queryEntries(query);
 };
 
-export const getModellValues = (db) => {
-  const query = `SELECT * FROM modellCards`;
-  return db.queryEntries(query);
+export const getHersteller = (db, herstellerID) => {
+  const query = `SELECT * FROM baureihen WHERE herstellerID = :herstellerID`;
+  return db.queryEntries(query, { herstellerID: herstellerID });
 };
 
-export const getSchuhValues = (db) => {
-  const query = `SELECT * FROM shoeCards`;
-  /*const query = `SELECT * FROM shoeCards WHERE`;
-  if (shoeVersion == "YeezyV1") {
-    query += `shoeVersion = YeezyV1`;
-  }*/
-  return db.queryEntries(query);
+export const getSchuh = (db, baureiheID) => {
+  const query = `SELECT * FROM schuh WHERE baureiheID = :baureiheID`;
+  return db.queryEntries(query, { baureiheID: baureiheID });
 };
 
 /**

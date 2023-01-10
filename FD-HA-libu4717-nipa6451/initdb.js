@@ -18,11 +18,13 @@ einem Release Preis von ca. 190€ und einem Wiederverkaufspreis von ca.
 1200€ ist der Hype um den Schuh zu erkennen.');
 `);*/
 
-db.query(`INSERT INTO indexCards(brand, imageLink, indexText, directLinkToModellCards)
+/*db.query(`INSERT INTO indexCards(brand, imageLink, indexText, directLinkToModellCards)
 VALUES
 ('Nike', 'Bilder/nike.png', 'Nike Sneaker überzeugen mit ihrem optimalen Fußklima und gutem Sitz. Entdecke ausgewählte Schuhklassiker von Nike und lasse dich von zeitlosem Design überzeugen.', '/nunjucksmarkenseite.html');
-`);
+`);*/
 
 //db.execute(`DELETE FROM modellCards;`);
+
+//db.execute(`DROP TABLE shoeCards;`);
 
 db.close();
