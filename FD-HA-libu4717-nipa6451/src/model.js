@@ -21,7 +21,7 @@ export const getIndexValues = (db) => {
 };
 
 export const getHersteller = (db, herstellerID) => {
-  const query = `SELECT * FROM baureihen WHERE herstellerID = :herstellerID`;
+  const query = `SELECT * FROM baureihen  WHERE herstellerID = :herstellerID`;
   return db.queryEntries(query, { herstellerID: herstellerID });
 };
 
