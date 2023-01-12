@@ -1,6 +1,7 @@
 import * as model from "./model.js";
 import { debug as Debug } from "https://deno.land/x/debug/mod.ts";
-
+import { userProfile } from "./controller.js";
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 const debug = Debug("app:formController");
 
 /*
@@ -13,15 +14,8 @@ export const isValidText = (text) => text.length >= 3;
 
 export const isValidTitle = (text) => text.length >= 1;
 
-export async function addRegister(ctx) {
+export async function addRegister(ctx, emailError, passwortError) {
   ctx.response.body = await ctx.nunjucks.render("register.html", {});
-  ctx.response.status = 200;
-  ctx.response.headers["content-type"] = "text/html";
-  return ctx;
-}
-
-export async function addLogin(ctx) {
-  ctx.response.body = await ctx.nunjucks.render("login.html", {});
   ctx.response.status = 200;
   ctx.response.headers["content-type"] = "text/html";
   return ctx;
@@ -34,24 +28,21 @@ export async function submitAddRegister(ctx) {
     nachname: formData.get("nachname"),
     email: formData.get("email"),
     passwort: formData.get("passwort"),
-
-    //passwortKontrolle: formData.get("passwortKontrolle")
+    passwortKontrolle: formData.get("passwortKontrolle"),
   };
-  //console.log(data);
-
-  if (data.vorname && data.nachname && data.email && data.passwort) {
-    console.log("Add aufgerufen");
-    model.addRegister(ctx.db, formData);
+  const pwVergleich = data.passwort === data.passwortKontrolle;
+  const vorhandenerUser = await model.userExistiert(ctx.db, data.email);
+  const errors = {};
+  if (pwVergleich && !vorhandenerUser) {
+    model.addRegister(ctx.db, data);
     ctx.redirect = new Response(null, {
       status: 302,
-      headers: { Location: "login.html" },
+      headers: { Location: "/login" },
     });
+    return ctx;
   } else {
-    const errors = {};
-    if (!data.vorname) errors.vorname = "Vorname zu kurz";
-    if (!data.nachname) errors.nachname = "Nachname zu kurz";
-    if (!data.email) errors.email = "E-Mail zu kurz";
-    if (!data.passwort) errors.passwort = "Passwort zu kurz";
+    !pwVergleich && (errors.passwort = "Passwort stimmt nicht überein!");
+    vorhandenerUser && (errors.email = "Email bereits vergeben!");
     ctx.response.body = await ctx.nunjucks.render("register.html", {
       form: data,
       errors: errors,
@@ -63,27 +54,35 @@ export async function submitAddRegister(ctx) {
   return ctx;
 }
 
+export async function addLogin(ctx) {
+  ctx.response.body = await ctx.nunjucks.render("login.html", {});
+  ctx.response.status = 200;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+
 export async function submitAddLogin(ctx) {
   const formData = await ctx.request.formData();
   const data = {
     email: formData.get("email"),
     passwort: formData.get("passwort"),
   };
-
-  if (data.email && data.passwort) {
-    console.log("Add aufgerufen");
-    model.addLogin(formData);
+  const nutzerPasswort = await model.getNutzerPasswort(ctx.db, data.email);
+  console.log("Hashwert:", nutzerPasswort);
+  const gleichesPasswort = await bcrypt.compare(data.passwort, nutzerPasswort);
+  console.log("uncryptPW:", data.passwort);
+  if (gleichesPasswort) {
     ctx.redirect = new Response(null, {
       status: 302,
-      headers: { Location: "login.html" },
+      headers: { Location: "/" },
     });
+    return ctx;
   } else {
-    const errors = {};
-    if (!data.vorname) errors.vorname = "Vorname zu kurz";
-    if (!data.nachname) errors.nachname = "Nachname zu kurz";
-    if (!data.email) errors.email = "E-Mail zu kurz";
-    if (!data.passwort) errors.passwort = "Passwort zu kurz";
-    ctx.response.body = await ctx.nunjucks.render("register.html", {
+    const errors = {
+      passwort: "Falsches Passwort!",
+    };
+
+    ctx.response.body = await ctx.nunjucks.render("login.html", {
       form: data,
       errors: errors,
     });
@@ -91,5 +90,4 @@ export async function submitAddLogin(ctx) {
     ctx.response.headers["content-type"] = "text/html";
     return ctx;
   }
-  return ctx;
 }

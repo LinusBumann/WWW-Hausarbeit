@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,10 +15,15 @@
       <label for="checkbox" class="hamburger">&#9776;</label>
       <nav>
         <ul class="navUL">
-          <li><a href="nunjucksmarkenseite.html">Nike</a></li>
-          <li><a href="nunjucksmarkenseite.html">Adidas</a></li>
-          <li><a href="aboutUs.html">About Us</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="/hersteller/2">Nike</a></li>
+          <li><a href="/hersteller/1">Adidas</a></li>
+          <li><a href="/about">About Us</a></li>
+
+          {% if nutzer.nutzername %}
+          <li><a href="/userProfile">Profil</a></li>
+          {% else %}
+          <li><a href="/login">Login</a></li>
+          {% endif %}
         </ul>
       </nav>
       <div class="backgroundBox"></div>
@@ -46,10 +52,10 @@
       </ul>
       <img src="/Bilder/hsLogo.png" alt="hsLogo" />
       <ul class="duku">
-        <li><a href="dokumentation.html">Dokumentation</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="datenschutz.html">Datenschutz</a></li>
-        <li><a href="kollophon.html">Kollophon</a></li>
+        <li><a href="/dokumentation">Dokumentation</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+        <li><a href="/kollophon">Kollophon</a></li>
       </ul>
     </footer>
     <a href="#top" id="button"

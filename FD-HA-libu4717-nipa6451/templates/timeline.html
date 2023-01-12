@@ -1,405 +1,330 @@
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Der Werdegang unserer Webseite</title>
-    <link rel="stylesheet" href="../styleHA.css" />
-  </head>
+{% extends 'layout.html' %} {%block content%}
 
-  <body>
-    <header class="header">
-      <a href="../index.html" class="logo">Sneak Peek</a>
-      <input class="checkbox" type="checkbox" id="checkbox" />
-      <label for="checkbox" class="hamburger">&#9776;</label>
-      <nav>
-        <ul class="navUL">
-          <li><a href="../UnterseitenMarken/nike.html">Nike</a></li>
-          <li><a href="../UnterseitenMarken/adidas.html">Adidas</a></li>
-          <li><a href="../UnterseitenMarken/puma.html">Puma</a></li>
-          <li>
-            <a href="../UnterseitenMarken/newBalance.html">New Balance</a>
-          </li>
-          <li>
-            <a href="../UnterseitenMarken/accessoires.html">Accessoires</a>
-          </li>
-          <li>
-            <a href="../UnterseitenMarken/collectables.html">Collectables</a>
-          </li>
-          <li><a href="../aboutUs.html">About Us</a></li>
-        </ul>
-      </nav>
-      <div class="backgroundBox"></div>
-    </header>
-
-    <main>
-      <h1 class="Timelineheading">Der Werdegang unserer Webseite</h1>
-      <div class="wrapper">
-        <div class="box">
-          <h2>31.05.2022: Hauptseite HTML</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-05-31_Index-HTML.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-05-31_Index-HTML.png"
-                alt=""
-            /></a>
-            <figcaption>
-              HTML der Indexseite wird erstellt (Bilder und Texte)
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>31.05.2022: Nav-Bar HTML</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-05-31_NavBar-HTML.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-05-31_NavBar-HTML.png"
-                alt=""
-            /></a>
-            <figcaption>
-              HTML der Nav-Bar wird erstellt (Bilder und Texte)
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>31.05.2022: Footer HTML</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-05-31_Footer-Html.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-05-31_Footer-Html.png"
-                alt=""
-            /></a>
-            <figcaption>
-              HTML für den Footer wird erstellt (Bilder und Texte)
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>01.06.2022: CSS für Hauptseite</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-01_Zeitleiste.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-01_Zeitleiste.png"
-                alt=""
-            /></a>
-            <figcaption>CSS für die Hauptseite wird erstellt</figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>01.06.2022: CSS für Nav-Bar</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-01_NavBarCSS.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-01_NavBarCSS.png"
-                alt=""
-            /></a>
-            <figcaption>
-              CSS für die Nav-Bar wird erstellt und Burgermenü erstellt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>01.06.2022: CSS für Footer</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-01_FooterCSS.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-01_FooterCSS.png"
-                alt=""
-            /></a>
-            <figcaption>CSS für den Footer wird erstellt</figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>02.06.2022: Navbar verbessert</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-02_23_12_43-Document.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-02_23_12_43-Document.png"
-                alt=""
-            /></a>
-            <figcaption>Navbar hat jetzt Hintergrund</figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>02.06.2022: Hintergrund der Card verändert (Hover)</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-02_23_13_24-Document.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-02_23_13_24-Document.png"
-                alt=""
-            /></a>
-            <figcaption>Alle Karten werden beim Hovern "schwarz"</figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>03.06.2022: HTML für Sneaker-Infoseite</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-03_Infoseite-HTML.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-03_Infoseite-HTML.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Das HTML für die Sneaker-Infoseite wird erstellt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>03.06.2022: CSS für Sneaker-Infoseite</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-03_Sneaker-Infoseite.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-03_Sneaker-Infoseite.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Das CSS für die Sneaker-Infoseite wird erstellt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>04.06.2022: HTML für AboutUs</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-04_AboutUs-HTML.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-04_AboutUs-HTML.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Das HTML für die About Us-Infoseite wird erstellt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>04.06.2022: CSS für AboutUs</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-04_AboutUs-CSS.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-04_AboutUs-CSS.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Das CSS für die About Us-Infoseite wird erstellt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>05.06.2022: HTML für Kontaktseite</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-05_KontactUs-HTML.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-05_KontactUs-HTML.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Das HTML für die Kontaktiere Uns-Infoseite wird erstellt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>05.06.2022: CSS für Kontaktseite</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-05_KontactUs-CSS.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-05_KontactUs-CSS.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Das CSS für die Kontaktiere Uns-Infoseite wird erstellt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>09.06.2022: Kartenanpassung in der Mobileversion</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-09_12_09_21-Document.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-09_12_09_21-Document.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Größe der Karten in der Mobileversion wurde angepasst
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>09.06.2022: Anordnung der Karten (Schuhe)</h2>
-          <figure>
-            <a
-              href="../Bilder/zeitleiste/2022-06-09_21_54_16-Jordan_1er_High.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-09_21_54_16-Jordan_1er_High.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Die Karten der Schuhe werden anders angeordnet
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>09.06.2022: Kartenanpassung in der Mobileversion</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-09_21_54_54-Document.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-09_21_54_54-Document.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Hintergrund der Karten in der Mobileversion jetzt dauerhaft
-              schwarz
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>10.06.2022: Kartenanpassung</h2>
-          <figure>
-            <a
-              href="../Bilder/zeitleiste/2022-06-10_19_40_45-Nike_und_Jordan.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-10_19_40_45-Nike_und_Jordan.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Karten erhalten einen zusätzlichen Hintergrund
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>10.06.2022: Anpassung der Hierarchie</h2>
-          <figure>
-            <a
-              href="../Bilder/zeitleiste/2022-06-10_19_41_13-Jordan1Modelle.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-10_19_41_13-Jordan1Modelle.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Unterseite mit Informationen wird verworfen. Infos alle jetzt auf
-              einer Seite gebündelt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>11.06.2022: Titel</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-11_12_51_30-Jordan1.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-11_12_51_30-Jordan1.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Passender Titel wird zur neuen Unterseite hinzugefügt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>11.06.2022: Kartenanpassung für Infoseite</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-11_16_37_11-Jordan1.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-11_16_37_11-Jordan1.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Jeder Schuh plus Info wird mit einem schwarzem Kasten eingerahmt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>11.06.2022: Kartenanpassung auf der Infoseite</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-11_16_37_45-Collectables.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-11_16_37_45-Collectables.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Karte ist jetzt nur noch im Bereich des Textes eingefärbt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>12.06.2022: Kartenanpassung auf der Infoseite</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-12_UnterseiteFertig.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-12_UnterseiteFertig.png"
-                alt=""
-            /></a>
-            <figcaption>
-              Karte ist jetzt transparent und hat den gleichen Rand wie die
-              normalen Boxen erhalten und farbverlauf wird entfernt
-            </figcaption>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>14.06.2022: Hausarbeit abschließen</h2>
-          <figure>
-            <a href="../Bilder/zeitleiste/2022-06-14_fertige_Seite.png"
-              ><img
-                class="ZeitleistenBild"
-                src="../Bilder/zeitleiste/2022-06-14_fertige_Seite.png"
-                alt=""
-            /></a>
-            <figcaption>HTML und CSS sind fertig ausgeführt</figcaption>
-          </figure>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <ul class="nicoImp">
-        <li><strong>Nico Paulsen</strong></li>
-        <li>Glücksburger Straße 81</li>
-        <li>24943 Flensburg</li>
-        <li>Matrikelnummer: 671112</li>
-      </ul>
-      <ul class="linusImp">
-        <li><strong>Linus Bumann</strong></li>
-        <li>Brixstrasse 19</li>
-        <li>24943 Flensburg</li>
-        <li>Matrikelnummer: 690869</li>
-      </ul>
-      <ul class="hsImp">
-        <li><strong>Hochschule Flensburg</strong></li>
-        <li>Kanzleistraße 91-93</li>
-        <li>24943 Flensburg</li>
-        <li>Fach: Frontend-Design</li>
-      </ul>
-      <img src="../Bilder/hsLogo.png" alt="hsLogo" />
-      <ul class="duku">
-        <li><a href="../dokumentation.html">Dokumentation</a></li>
-        <li><a href="../kontakt.html">Kontakt</a></li>
-        <li><a href="../datenschutz.html">Datenschutz</a></li>
-        <li><a href="../kollophon.html">Kollophon</a></li>
-      </ul>
-    </footer>
-    <a href="#top" id="button"
-      ><p><i class="arrow up"></i></p
-    ></a>
-  </body>
-</html>
+<main>
+  <h1 class="Timelineheading">Der Werdegang unserer Webseite</h1>
+  <div class="wrapper">
+    <div class="box">
+      <h2>31.05.2022: Hauptseite HTML</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-05-31_Index-HTML.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-05-31_Index-HTML.png"
+            alt=""
+        /></a>
+        <figcaption>
+          HTML der Indexseite wird erstellt (Bilder und Texte)
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>31.05.2022: Nav-Bar HTML</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-05-31_NavBar-HTML.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-05-31_NavBar-HTML.png"
+            alt=""
+        /></a>
+        <figcaption>
+          HTML der Nav-Bar wird erstellt (Bilder und Texte)
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>31.05.2022: Footer HTML</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-05-31_Footer-Html.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-05-31_Footer-Html.png"
+            alt=""
+        /></a>
+        <figcaption>
+          HTML für den Footer wird erstellt (Bilder und Texte)
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>01.06.2022: CSS für Hauptseite</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-01_Zeitleiste.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-01_Zeitleiste.png"
+            alt=""
+        /></a>
+        <figcaption>CSS für die Hauptseite wird erstellt</figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>01.06.2022: CSS für Nav-Bar</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-01_NavBarCSS.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-01_NavBarCSS.png"
+            alt=""
+        /></a>
+        <figcaption>
+          CSS für die Nav-Bar wird erstellt und Burgermenü erstellt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>01.06.2022: CSS für Footer</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-01_FooterCSS.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-01_FooterCSS.png"
+            alt=""
+        /></a>
+        <figcaption>CSS für den Footer wird erstellt</figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>02.06.2022: Navbar verbessert</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-02_23_12_43-Document.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-02_23_12_43-Document.png"
+            alt=""
+        /></a>
+        <figcaption>Navbar hat jetzt Hintergrund</figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>02.06.2022: Hintergrund der Card verändert (Hover)</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-02_23_13_24-Document.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-02_23_13_24-Document.png"
+            alt=""
+        /></a>
+        <figcaption>Alle Karten werden beim Hovern "schwarz"</figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>03.06.2022: HTML für Sneaker-Infoseite</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-03_Infoseite-HTML.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-03_Infoseite-HTML.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Das HTML für die Sneaker-Infoseite wird erstellt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>03.06.2022: CSS für Sneaker-Infoseite</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-03_Sneaker-Infoseite.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-03_Sneaker-Infoseite.png"
+            alt=""
+        /></a>
+        <figcaption>Das CSS für die Sneaker-Infoseite wird erstellt</figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>04.06.2022: HTML für AboutUs</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-04_AboutUs-HTML.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-04_AboutUs-HTML.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Das HTML für die About Us-Infoseite wird erstellt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>04.06.2022: CSS für AboutUs</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-04_AboutUs-CSS.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-04_AboutUs-CSS.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Das CSS für die About Us-Infoseite wird erstellt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>05.06.2022: HTML für Kontaktseite</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-05_KontactUs-HTML.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-05_KontactUs-HTML.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Das HTML für die Kontaktiere Uns-Infoseite wird erstellt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>05.06.2022: CSS für Kontaktseite</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-05_KontactUs-CSS.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-05_KontactUs-CSS.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Das CSS für die Kontaktiere Uns-Infoseite wird erstellt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>09.06.2022: Kartenanpassung in der Mobileversion</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-09_12_09_21-Document.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-09_12_09_21-Document.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Größe der Karten in der Mobileversion wurde angepasst
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>09.06.2022: Anordnung der Karten (Schuhe)</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-09_21_54_16-Jordan_1er_High.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-09_21_54_16-Jordan_1er_High.png"
+            alt=""
+        /></a>
+        <figcaption>Die Karten der Schuhe werden anders angeordnet</figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>09.06.2022: Kartenanpassung in der Mobileversion</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-09_21_54_54-Document.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-09_21_54_54-Document.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Hintergrund der Karten in der Mobileversion jetzt dauerhaft schwarz
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>10.06.2022: Kartenanpassung</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-10_19_40_45-Nike_und_Jordan.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-10_19_40_45-Nike_und_Jordan.png"
+            alt=""
+        /></a>
+        <figcaption>Karten erhalten einen zusätzlichen Hintergrund</figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>10.06.2022: Anpassung der Hierarchie</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-10_19_41_13-Jordan1Modelle.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-10_19_41_13-Jordan1Modelle.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Unterseite mit Informationen wird verworfen. Infos alle jetzt auf
+          einer Seite gebündelt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>11.06.2022: Titel</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-11_12_51_30-Jordan1.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-11_12_51_30-Jordan1.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Passender Titel wird zur neuen Unterseite hinzugefügt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>11.06.2022: Kartenanpassung für Infoseite</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-11_16_37_11-Jordan1.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-11_16_37_11-Jordan1.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Jeder Schuh plus Info wird mit einem schwarzem Kasten eingerahmt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>11.06.2022: Kartenanpassung auf der Infoseite</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-11_16_37_45-Collectables.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-11_16_37_45-Collectables.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Karte ist jetzt nur noch im Bereich des Textes eingefärbt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>12.06.2022: Kartenanpassung auf der Infoseite</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-12_UnterseiteFertig.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-12_UnterseiteFertig.png"
+            alt=""
+        /></a>
+        <figcaption>
+          Karte ist jetzt transparent und hat den gleichen Rand wie die normalen
+          Boxen erhalten und farbverlauf wird entfernt
+        </figcaption>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>14.06.2022: Hausarbeit abschließen</h2>
+      <figure>
+        <a href="../Bilder/zeitleiste/2022-06-14_fertige_Seite.png"
+          ><img
+            class="ZeitleistenBild"
+            src="../Bilder/zeitleiste/2022-06-14_fertige_Seite.png"
+            alt=""
+        /></a>
+        <figcaption>HTML und CSS sind fertig ausgeführt</figcaption>
+      </figure>
+    </div>
+  </div>
+</main>
+{%endblock%}

@@ -2,7 +2,7 @@ import { debug as Debug } from "https://deno.land/x/debug/mod.ts";
 
 const debug = Debug("app:model");
 import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
-
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 /**
  *  All these functions make more sense with a database.
  *  ;-)
@@ -43,38 +43,57 @@ export const getById = (data, id) => data[id];
  * @param {Object[]} data – All notes.
  * @param {Object} formData – Note to add.
  */
-export const addRegister = (db, formData) => {
-  const vorname = formData.get("vorname");
-  const nachname = formData.get("nachname");
-  const email = formData.get("email");
-  const passwort = formData.get("passwort");
-  db.query(
+export const addRegister = async (db, formData) => {
+  const passwortCrypt = await bcrypt.hash(formData.passwort);
+
+  await db.query(
     `INSERT INTO userdata (vorname, nachname, email, passwort) VALUES (?, ?, ?, ?);`,
-    [vorname, nachname, email, passwort]
+    [formData.vorname, formData.nachname, formData.email, passwortCrypt]
   );
+  let angemeldeterUser = await db.query(
+    `SELECT * FROM userData WHERE email = ?;`,
+    [formData.email]
+  );
+  angemeldeterUser = {
+    email: userData[0][3],
+    passwortCrypt: userData[0][4],
+  };
+  return angemeldeterUser;
 };
 
-/*export const addLogin = (formData) => {
-  const db = new DB("data/userdata.sqlite");
-  const email = formData.get("email");
-  const passwort = formData.get("passwort");
-  db.query(
-    "SELECT * FROM userdata WHERE email = ? AND passwort = ?",
-    [username, passwort],
-    function (error, results) {
-      if (error) {
-        //res.send({ error: "An error occurred" });
-      } else if (results.length > 0) {
-        // login was successful, generate an authorization token
-        //const authToken = generateAuthToken();
-        //res.send({ authToken: authToken });
-      } else {
-        // res.send({ error: "Invalid login credentials" });
-      }
-    }
+export const userExistiert = async (db, email) => {
+  const nutzerEmail = await db.query(
+    `SELECT * FROM userData WHERE email = ?;`,
+    [email]
   );
-  db.close();
-};*/
+  if (nutzerEmail.length == 0) return false;
+  return true;
+};
+
+export const getNutzerPasswort = async (db, email) => {
+  const nutzerEmail = await db.query(
+    `SELECT * FROM userData WHERE email = ?;`,
+    [email]
+  );
+  if (nutzerEmail.length == 0) return false;
+
+  return nutzerEmail[0][4];
+};
+
+export const getNutzer = async (db, email) => {
+  const nutzer = await db.query(
+    `SELECT * FROM userData WHERE email = ?;`,
+    [email]
+  );
+  if (nutzer.length == 0) return false;
+  nutzer = {
+    vorname: userData[0][2],
+    nachname: userData[0][3],
+    email: userData[0][4]
+  };
+
+  return nutzer;
+};
 
 /**
  * Update a note.

@@ -124,44 +124,22 @@ const router = async (ctx) => {
       return await formController.submitAddLogin(ctx);
     }
   }
+  //Profil
+  if (url.pathname.match("/userProfile")) {
+    return await controller.userProfile(ctx);
+  }
+
+  //SchuhBearbeiten
+  if (url.pathname.match("/schuheBearbeiten")) {
+    return await controller.schuheBearbeiten(ctx);
+  }
+  //SchuhHinzufügen
+  if (url.pathname.match("/schuheHinzufügen")) {
+    return await controller.schuheHinzufügen(ctx);
+  }
+
   //404-Error
   return await controller.error404(ctx);
-
-  /*
-  //Adidas
-  if (url.pathname.match("/adidas")) {
-    return await controller.adidas(ctx);
-  }
-  //Yezzy-V1
-  if (url.pathname.match("/Yeezyv1")) {
-    return await controller.yeezyv1(ctx);
-  }
-  //Yeezy-V2
-  if (url.pathname.match("/Yeezyv2")) {
-    return await controller.yeezyv2(ctx);
-  }
-
-  //Nike
-  if (url.pathname.match("/nike")) {
-    return await controller.nike(ctx);
-  }
-  //Jordan-1-Modelle
-  if (url.pathname.match("/Jordan1Modelle")) {
-    return await controller.jordan1Modelle(ctx);
-  }
-  //Jordan-3-Modelle
-  if (url.pathname.match("/Jordan3Modelle")) {
-    return await controller.jordan3Modelle(ctx);
-  }
-  //Jordan-4-Modelle
-  if (url.pathname.match("/Jordan4Modelle")) {
-    return await controller.jordan4Modelle(ctx);
-  }
-  //Dunk-Modelle
-  if (url.pathname.match("/DunkModelle")) {
-    return await controller.dunkModelle(ctx);
-  }
- */
 };
 
 const serveStaticFile = async (base, ctx) => {

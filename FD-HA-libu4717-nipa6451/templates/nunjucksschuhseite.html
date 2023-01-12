@@ -10,9 +10,14 @@
           <h3>{{dbData.schuhName}}</h3>
           <p>{{dbData.schuhInfoText}}</p>
         </div>
+
+        <a class="whiteButton" href="/schuheBearbeiten">Bearbeiten</a>
       </div>
       {%endfor%}
     </div>
   </div>
+  {% if nutzer.nutzername %}
+  <a class="whiteButton" href="/schuheHinzufügen">Hinzufügen</a>
+  {% endif %}
 </main>
 {%endblock%}
