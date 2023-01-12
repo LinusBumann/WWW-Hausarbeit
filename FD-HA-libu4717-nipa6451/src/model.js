@@ -15,6 +15,32 @@ import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
  */
 export const index = (data) => data;
 
+export const createSession = async (db, email, sessionID) => {
+  await db.query(
+    `INSERT INTO sessions (sessionID, userEmail, expirationDate) VALUES (?, ?, ?);`,
+    [sessionID, email, Date.now() + 1000 * 60 * 60 * 24 * 7]
+  );
+};
+
+export const getSession = async (db, sessionID) => {
+  let session = db.query(`SELECT * FROM sessions WHERE sessionID = ?;`, [
+    sessionID,
+  ]);
+
+  if (session.length == 0) return false;
+  session = {
+    sessionID: session[0][0],
+    email: session[0][1],
+    expirationDate: session[0][2],
+  };
+
+  if (session.expirationDate < Date.now()) {
+    await db.query(`DELETE FROM sessions WHERE sessionID = ?;`, [sessionID]);
+    return false;
+  }
+  return session;
+};
+
 export const getIndexValues = (db) => {
   const query = `SELECT * FROM hersteller`;
   return db.queryEntries(query);
@@ -31,7 +57,14 @@ export const getSchuh = (db, baureiheID) => {
 };
 export const getSchuhID = (db, schuhID) => {
   const query = `SELECT * FROM schuh WHERE schuhID = :schuhID`;
-  return db.queryEntries(query, { schuhID: schuhID });
+  return db.queryEntries(query, { schuhID: schuhID })[0];
+};
+
+export const bearbeiteSchuheintrag = async (db, data) => {
+  await db.query(
+    `UPDATE schuh SET schuhName = ?, schuhImageLink = ?, schuhInfoText = ? WHERE ;`,
+    [data.schuhTitel, data.schuhImageLink, data.schuhInfoText]
+  );
 };
 
 /**
@@ -87,14 +120,14 @@ export const getNutzerPasswort = async (db, email) => {
 };
 
 export const getNutzer = async (db, email) => {
-  const nutzer = await db.query(`SELECT * FROM userData WHERE email = ?;`, [
+  let nutzer = await db.query(`SELECT * FROM userData WHERE email = ?;`, [
     email,
   ]);
   if (nutzer.length == 0) return false;
   nutzer = {
-    vorname: userData[0][2],
-    nachname: userData[0][3],
-    email: userData[0][4],
+    vorname: nutzer[0][1],
+    nachname: nutzer[0][2],
+    email: nutzer[0][3],
   };
 
   return nutzer;

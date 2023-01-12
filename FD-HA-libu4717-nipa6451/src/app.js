@@ -2,10 +2,12 @@ import nunjucks from "https://deno.land/x/nunjucks@3.2.3/mod.js";
 import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
 import * as path from "https://deno.land/std@0.152.0/path/posix.ts";
 import * as mediaTypes from "https://deno.land/std@0.151.0/media_types/mod.ts";
+import { encode as base64Encode } from "https://deno.land/std@0.171.0/encoding/base64.ts";
+import * as model from "./model.js";
 
 import * as controller from "./controller.js";
 import * as formController from "./form-controller.js";
-import { addRegister } from "./model.js";
+import { addRegister, getNutzer } from "./model.js";
 
 // DEV only: noCache:true
 nunjucks.configure("templates", { autoescape: true, noCache: true });
@@ -171,6 +173,25 @@ const serveStaticFile = async (base, ctx) => {
 
 const db = new DB("data/sneakpeakdata.sqlite");
 
+const createId = () => {
+  const array = new Uint32Array(64);
+  crypto.getRandomValues(array);
+  return base64Encode(array);
+};
+
+const getSessionNutzer = async (ctx) => {
+  const session = await model.getSession(ctx.db, ctx.sessionID);
+  if (session) {
+    const nutzer = await model.getNutzer(ctx.db, session.email);
+    if (nutzer) {
+      ctx.nutzer = nutzer;
+    }
+  } else {
+    ctx.nutzer = undefined;
+  }
+  return ctx;
+};
+
 export const handleRequest = async (request) => {
   let ctx = {
     db: db,
@@ -183,6 +204,19 @@ export const handleRequest = async (request) => {
       headers: {},
     },
   };
+
+  if (!ctx.request.headers.get("cookie")) {
+    let sessionID = createId();
+    ctx.response.headers["Set-Cookie"] =
+      sessionID = `${sessionID}; Max-Age = 604800`;
+    ctx.sessionID = sessionID;
+  } else {
+    const cookie = ctx.request.headers.get("cookie");
+    ctx.sessionID = cookie.split("=")[1];
+  }
+
+  ctx = await getSessionNutzer(ctx);
+  console.log(ctx.nutzer);
 
   const base = "assets";
   ctx = await serveStaticFile(base, ctx);

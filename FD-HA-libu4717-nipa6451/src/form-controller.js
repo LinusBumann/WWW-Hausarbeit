@@ -34,6 +34,7 @@ export async function submitAddRegister(ctx) {
   const vorhandenerUser = await model.userExistiert(ctx.db, data.email);
   const errors = {};
   if (pwVergleich && !vorhandenerUser) {
+    model.createSession(ctx.db, data.email, ctx.sessionID);
     model.addRegister(ctx.db, data);
     ctx.redirect = new Response(null, {
       status: 302,
@@ -72,6 +73,7 @@ export async function submitAddLogin(ctx) {
   const gleichesPasswort = await bcrypt.compare(data.passwort, nutzerPasswort);
   console.log("uncryptPW:", data.passwort);
   if (gleichesPasswort) {
+    model.createSession(ctx.db, data.email, ctx.sessionID);
     ctx.redirect = new Response(null, {
       status: 302,
       headers: { Location: "/" },
@@ -81,7 +83,6 @@ export async function submitAddLogin(ctx) {
     const errors = {
       passwort: "Falsches Passwort!",
     };
-
     ctx.response.body = await ctx.nunjucks.render("login.html", {
       form: data,
       errors: errors,
@@ -90,4 +91,18 @@ export async function submitAddLogin(ctx) {
     ctx.response.headers["content-type"] = "text/html";
     return ctx;
   }
+}
+
+export async function submitAddSchuhBearbeitung(ctx) {
+  const formData = await ctx.request.formData();
+  //const schuhID = model.getSchuhID(ctx.db, ctx.params.schuhID);
+  const data = {
+    //schuhID: schuhID,
+    schuhTitel: formData.get("schuhTitel"),
+    schuhImageLink: formData.get("schuhImage"),
+    schuhInfoText: formData.get("schuhInfoText"),
+    schuhKommentar: formData.get("schuhKommentar"),
+  };
+
+  const bearbeiteterEintrag = await model.bearbeiteSchuheintrag(ctx.db, data);
 }

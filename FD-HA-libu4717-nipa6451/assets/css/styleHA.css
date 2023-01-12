@@ -601,7 +601,7 @@ p {
   padding: 120px 20px 20px 20px;
 }
 form {
-  height: 400px;
+  height: justify-content;
   width: 70vw;
   padding: 20px;
   border-radius: 40px;
@@ -641,7 +641,7 @@ input::placeholder {
   color: rgba(0, 0, 0, 0.212);
 }
 .nachricht {
-  height: 150px;
+  height: 120px;
   overflow-wrap: break-word;
 }
 .Senden {

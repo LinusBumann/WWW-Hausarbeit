@@ -41,11 +41,9 @@ export async function index(ctx) {
 
 export async function baureihen(ctx) {
   debug("@index. ctx %O", ctx.request.url);
-  const nutzer = await model.getNutzer(ctx.db);
   const a = model.getHersteller(ctx.db, ctx.params.herstellerID);
   ctx.response.body = ctx.nunjucks.render("nunjucksmarkenseite.html", {
     dbData: a,
-    nutzer,
   });
 
   ctx.response.status = 200;
@@ -55,11 +53,10 @@ export async function baureihen(ctx) {
 
 export async function schuhe(ctx) {
   debug("@index. ctx %O", ctx.request.url);
-  const nutzer = await model.getNutzer(ctx.db);
   const a = model.getSchuh(ctx.db, ctx.params.baureihe);
   ctx.response.body = ctx.nunjucks.render("nunjucksschuhseite.html", {
     dbData: a,
-    nutzer,
+    nutzer: ctx.nutzer,
   });
 
   ctx.response.status = 200;
@@ -201,7 +198,6 @@ export async function userProfile(ctx) {
 }
 export async function schuheBearbeiten(ctx) {
   debug("@index. ctx %O", ctx.request.url);
-  //const data = model.getById(ctx.data, ctx.params.id);
   const nutzer = await model.getNutzer(ctx.db);
   const a = model.getSchuhID(ctx.db, ctx.params.schuhID);
   ctx.response.body = ctx.nunjucks.render("schuheBearbeiten.html", {

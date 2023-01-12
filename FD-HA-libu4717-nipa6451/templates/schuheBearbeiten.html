@@ -1,25 +1,40 @@
 {% extends 'layout.html' %} {%block content%}
 
 <main class="kMain">
-  <form action="https://www.inf.hs-flensburg.de/echo/" method="post">
+  <form
+    action="http://localhost:9000/baureihe/{{dbData.baureiheID}}"
+    method="post"
+  >
     <h1>Schuh Bearbeiten</h1>
+    <label for="schuhTitel">Schuhname</label>
     <div class="input_container">
-      <label for="vn">{{dbData.schuhName}}</label>
-      <input type="text" name="Vorname" id="vn" placeholder="sfdgdggh" />
+      <input
+        type="text"
+        name="schuhTitel"
+        id="schuhTitel"
+        placeholder="Hier den Namen des Schuhs eintragen"
+        value="{{dbData.schuhName}}"
+      />
 
-      <label for="nn"></label>
-      <input type="text" name="Nachname" id="nn" placeholder="Nachname" />
+      <label for="imageUpload">Bild hochladen</label>
+      <input type="file" id="schuhImage" name="schuhImage" />
 
-      <label for="EMail"></label>
-      <input type="text" name="E-Mail" id="EMail" placeholder="E-Mail" />
-
-      <label for="Nachr"></label>
+      <label for="schuhInfoText">Beschreibungstext</label>
       <input
         class="nachricht"
-        name="Nachricht"
-        id="Nachr"
         type="text"
-        placeholder="Nachricht"
+        name="schuhInfoText"
+        id="schuhInfoText"
+        placeholder="Hier den Beschreibungstext eintragen"
+      />
+
+      <label for="schuhKommentar">Kommentar zu Schuh</label>
+      <input
+        class="nachricht"
+        type="text"
+        name="schuhKommentar"
+        id="schuhKommentar"
+        placeholder="Hier deinen Kommentar zum Schuh eintragen"
       />
     </div>
     <input class="Senden" type="submit" value="Submit" />
