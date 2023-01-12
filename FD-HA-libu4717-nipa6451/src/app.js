@@ -131,6 +131,11 @@ const router = async (ctx) => {
 
   //SchuhBearbeiten
   if (url.pathname.match("/schuheBearbeiten")) {
+    //Auslesen der Schuh-ID
+    let fullURL = url.pathname;
+    let split = fullURL.split("/");
+    let schuhID = split[2];
+    ctx.params.schuhID = Number(schuhID);
     return await controller.schuheBearbeiten(ctx);
   }
   //SchuhHinzufügen

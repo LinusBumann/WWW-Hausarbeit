@@ -201,10 +201,16 @@ export async function userProfile(ctx) {
 }
 export async function schuheBearbeiten(ctx) {
   debug("@index. ctx %O", ctx.request.url);
+  //const data = model.getById(ctx.data, ctx.params.id);
   const nutzer = await model.getNutzer(ctx.db);
-  ctx.response.body = ctx.nunjucks.render("schuheBearbeiten.html", { nutzer });
+  const a = model.getSchuhID(ctx.db, ctx.params.schuhID);
+  ctx.response.body = ctx.nunjucks.render("schuheBearbeiten.html", {
+    dbData: a,
+    nutzer,
+  });
   ctx.response.status = 200;
   ctx.response.headers["content-type"] = "text/html";
+  console.log("im A steht:", a);
   return ctx;
 }
 

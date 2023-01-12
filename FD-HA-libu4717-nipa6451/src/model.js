@@ -29,6 +29,10 @@ export const getSchuh = (db, baureiheID) => {
   const query = `SELECT * FROM schuh WHERE baureiheID = :baureiheID`;
   return db.queryEntries(query, { baureiheID: baureiheID });
 };
+export const getSchuhID = (db, schuhID) => {
+  const query = `SELECT * FROM schuh WHERE schuhID = :schuhID`;
+  return db.queryEntries(query, { schuhID: schuhID });
+};
 
 /**
  * Get one note.
@@ -36,7 +40,9 @@ export const getSchuh = (db, baureiheID) => {
  * @param {number} id – Id of a note
  * @returns {Object|undefined} – The note or undefined.
  */
-export const getById = (data, id) => data[id];
+export const getById = (data, id) => {
+  return data.find((item) => item.file_name === id);
+};
 
 /**
  * Add a note.
@@ -81,15 +87,14 @@ export const getNutzerPasswort = async (db, email) => {
 };
 
 export const getNutzer = async (db, email) => {
-  const nutzer = await db.query(
-    `SELECT * FROM userData WHERE email = ?;`,
-    [email]
-  );
+  const nutzer = await db.query(`SELECT * FROM userData WHERE email = ?;`, [
+    email,
+  ]);
   if (nutzer.length == 0) return false;
   nutzer = {
     vorname: userData[0][2],
     nachname: userData[0][3],
-    email: userData[0][4]
+    email: userData[0][4],
   };
 
   return nutzer;
