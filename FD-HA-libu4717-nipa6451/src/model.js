@@ -129,9 +129,13 @@ export const getNutzer = async (db, email) => {
     nachname: nutzer[0][2],
     email: nutzer[0][3],
   };
-
   return nutzer;
 };
+
+/*export const logoutUser = async (db) => {
+  let query = `DELETE FROM sessions`;
+  return db.queryEntries(query);
+};*/
 
 /**
  * Update a note.

@@ -1,16 +1,15 @@
 {% extends 'layout.html' %} {%block content%}
 
 <main class="kMain">
-  <form action="https://www.inf.hs-flensburg.de/echo/" method="post">
+  <form action="#" method="post">
     <h1>Mein Profil</h1>
     <div class="input_container">
-      <label for="vorname">Vorname</label>
-      <p>Hallo</p>
+      <p>Vorname: {{nutzer.vorname}}</p>
+      <p>Nachname: {{nutzer.nachname}}</p>
 
-      <label for="EMail"></label>
-      <input type="text" name="E-Mail" id="EMail" placeholder="E-Mail" />
+      <p><p>E-Mail: {{nutzer.email}}</p></p>
     </div>
-    <input class="Senden" type="submit" value="Submit" />
+    <input class="Senden" type="submit" value="Logout" />
   </form>
 </main>
 
