@@ -1,7 +1,7 @@
 import { debug as Debug } from "https://deno.land/x/debug/mod.ts";
+import * as path from "https://deno.land/std/path/mod.ts";
 
 const debug = Debug("app:model");
-import { DB } from "https://deno.land/x/sqlite@v3.7.0/mod.ts";
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 /**
  *  All these functions make more sense with a database.
@@ -85,7 +85,7 @@ export const addSchuh = async (db, data) => {
     [
       data.schuhBaureihe,
       data.schuhTitel,
-      "/Bilder/" + data.schuhImageLink,
+      data.schuhImageLink,
       data.schuhInfoText,
       data.schuhKommentar,
     ]

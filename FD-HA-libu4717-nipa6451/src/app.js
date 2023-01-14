@@ -227,7 +227,8 @@ export const handleRequest = async (request) => {
   if (!ctx.request.headers.get("cookie")) {
     let sessionID = createId();
     ctx.response.headers["Set-Cookie"] =
-      sessionID = `${sessionID}; Max-Age = 604800`;
+      sessionID =
+        `${sessionID}; Max-Age = 604800`;
     ctx.sessionID = sessionID;
   } else {
     const cookie = ctx.request.headers.get("cookie");

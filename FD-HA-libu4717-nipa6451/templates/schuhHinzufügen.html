@@ -1,7 +1,7 @@
 {% extends 'layout.html' %} {%block content%}
 
 <main class="kMain">
-  <form action="http://localhost:9000/schuheHinzufeugen" method="post">
+  <form action="http://localhost:9000/schuheHinzufeugen" method="post" enctype="multipart/form-data">
     <h1>Schuh hinzufügen</h1>
     <label for="schuhTitel">Schuhname</label>
     <div class="input_container">
@@ -10,6 +10,7 @@
         name="schuhTitel"
         id="schuhTitel"
         placeholder="Hier den Namen des Schuhs eintragen"
+        required
       />
       <label for="schuhTitel">Baureihe</label>
       <div class="input_container">
@@ -19,10 +20,13 @@
           id="baureihe"
           placeholder="Nummer der Baureihe"
           value="{{dbData.baureiheID}}"
+          required
         />
-        
+        {% if errors.image%}
+        <p>{{errors}}</p>
+        {% endif %}
       <label for="imageUpload">Bild hochladen</label>
-      <input type="file" id="schuhImage" name="schuhImage" />
+      <input type="file" id="schuhImage" name="schuhImage" required/>
 
       <label for="schuhInfoText">Beschreibungstext</label>
       <input
@@ -31,6 +35,7 @@
         name="schuhInfoText"
         id="schuhInfoText"
         placeholder="Hier den Beschreibungstext eintragen"
+        required
       />
 
       <label for="schuhKommentar">Kommentar zu Schuh</label>
@@ -40,6 +45,7 @@
         name="schuhKommentar"
         id="schuhKommentar"
         placeholder="Hier deinen Kommentar zum Schuh eintragen"
+        required
       />
     </div>
     <input class="Senden" type="submit" value="Submit" />

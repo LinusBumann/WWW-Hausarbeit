@@ -3,6 +3,8 @@ import { debug as Debug } from "https://deno.land/x/debug/mod.ts";
 import { userProfile } from "./controller.js";
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 const debug = Debug("app:formController");
+import * as mediaTypes from "https://deno.land/std/media_types/mod.ts";
+import * as path from "https://deno.land/std/path/mod.ts";
 
 /*
 Use browser and IDE side-by-side.
@@ -129,9 +131,51 @@ export async function submitAddSchuheHinzufügen(ctx) {
     schuhInfoText: formData.get("schuhInfoText"),
     schuhKommentar: formData.get("schuhKommentar"),
   };
-  model.addSchuh(ctx.db, data);
-  ctx.redirect = new Response(null, {
-    status: 302,
-    headers: { Location: "/" },
-  });
+
+  const errors = await validateImage(data.schuhImageLink);
+
+  if (errors) {
+    formData.schuhImage = undefined;
+    ctx.response.body = ctx.nunjucks.render("schuhHinzufügen.html", {
+      errors: errors,
+    });
+    ctx.response.status = 200;
+    ctx.response.headers["content-type"] = "text/html";
+    return ctx;
+  } else {
+    const filename = generateFilename(data.schuhImageLink);
+    const destFile = await Deno.open(
+      path.join(Deno.cwd(), "assets", filename),
+      { create: true, write: true, truncate: true }
+    );
+    console.log("Deno CWD", Deno.cwd(), "DENO END");
+    await data.schuhImageLink.stream().pipeTo(destFile.writable);
+    data.schuhImageLink = filename;
+    console.log(data.schuhImageLink);
+    model.addSchuh(ctx.db, data);
+    ctx.redirect = new Response(null, {
+      status: 302,
+      headers: { Location: "/" },
+    });
+    return ctx;
+  }
+}
+
+function validateImage(file) {
+  if (!file) return "Bild ist erforderlich.";
+  if (file.size == 0) return "Bild ist erforderlich";
+  if (isMimetypeOk(file.type)) return false;
+  return "Dateiformat nicht zulässig.";
+}
+
+const isMimetypeOk = (type) => {
+  if (type.substr(type.length - 4) === "jpeg") return true;
+  if (type.substr(type.length - 3) === "png") return true;
+  if (type.substr(type.length - 3) === "svg") return true;
+};
+
+export function generateFilename(file) {
+  return (
+    "/Bilder/" + crypto.randomUUID() + "." + mediaTypes.extension(file.type)
+  );
 }
