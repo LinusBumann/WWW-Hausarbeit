@@ -1,0 +1,20 @@
+{% extends 'layout.html' %} {%block content%}
+
+<main class="kMain">
+  <form action="http://localhost:9000/schuheEntfernen" method="post">
+    <h1>Schuh Entfernen</h1>
+    <label for="schuhTitel">Schuhname</label>
+    <div class="input_container">
+      <input
+        type="text"
+        name="schuhTitel"
+        id="schuhTitel"
+        placeholder="Hier den Namen des Schuhs eintragen"
+        value="{{dbData.schuhName}}"
+      />
+    </div>
+    <input class="Senden" type="submit" value="Schuh entfernen" />
+  </form>
+</main>
+
+{%endblock%}

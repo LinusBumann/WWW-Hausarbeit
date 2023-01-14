@@ -23,14 +23,14 @@ const router = async (ctx) => {
 
   //Index
   if (url.pathname == "/") {
-    console.log("Index");
+    //console.log("Index");
     return await controller.index(ctx);
   }
 
   //Nunjucks Markenseite
   //Beispielurl: hersteller/20
   if (url.pathname.match("/hersteller")) {
-    console.log("Meine Baureihen URL: ", url.pathname);
+    //console.log("Meine Baureihen URL: ", url.pathname);
     //Auslesen der Hersteller-ID
     let fullURL = url.pathname;
     let split = fullURL.split("/");
@@ -41,7 +41,7 @@ const router = async (ctx) => {
 
   //Nunjucks Markenseite
   if (url.pathname.match("/baureihe")) {
-    console.log("Meine Schuh URL: ", url.pathname);
+    //console.log("Meine Schuh URL: ", url.pathname);
     //Auslesen der Baureihe-ID
     let fullURL = url.pathname;
     let split = fullURL.split("/");
@@ -106,11 +106,11 @@ const router = async (ctx) => {
   //Register GET und POST
   if (url.pathname.match("/register")) {
     if (myRequest.method == "GET") {
-      console.log("GET: Registrieren");
+      //console.log("GET: Registrieren");
       return await formController.addRegister(ctx);
     }
     if (myRequest.method == "POST") {
-      console.log("POST: Registrieren");
+      //console.log("POST: Registrieren");
       return await formController.submitAddRegister(ctx);
     }
   }
@@ -118,22 +118,22 @@ const router = async (ctx) => {
   //Login
   if (url.pathname.match("/login")) {
     if (myRequest.method == "GET") {
-      console.log("GET: Login");
+      //console.log("GET: Login");
       return await formController.addLogin(ctx);
     }
     if (myRequest.method == "POST") {
-      console.log("POST: Login");
+     // console.log("POST: Login");
       return await formController.submitAddLogin(ctx);
     }
   }
   //Profil
   if (url.pathname.match("/userProfile")) {
     if (myRequest.method == "GET") {
-      console.log("GET: UserProfile");
+      //console.log("GET: UserProfile");
       return await controller.userProfile(ctx);
     }
     if (myRequest.method == "POST") {
-      console.log("POST: Logout");
+      //console.log("POST: Logout");
       return await formController.logoutUser(ctx);
     }
   }
@@ -150,7 +150,7 @@ const router = async (ctx) => {
       return await controller.schuheBearbeitenGET(ctx);
     }
     if (myRequest.method == "POST") {
-      console.log("POST: Bearbeiten");
+      //console.log("POST: Bearbeiten");
       return await formController.submitAddSchuhBearbeitung(ctx);
     }
   }
@@ -164,6 +164,16 @@ const router = async (ctx) => {
     }
   }
 
+  // Schuhe Entfernen
+  if (url.pathname.match("/schuheEntfernen")) {
+    if (myRequest.method == "GET") {
+      return await controller.schuheEntfernen(ctx);
+    }
+    if (myRequest.method == "POST") {
+      return await formController.schuheEntfernen(ctx);
+    }
+  }
+
   //404-Error
   return await controller.error404(ctx);
 };
@@ -172,7 +182,7 @@ const serveStaticFile = async (base, ctx) => {
   const url = new URL(ctx.request.url);
   let file;
   try {
-    console.log(path.join(base, url.pathname.toString()));
+    //console.log(path.join(base, url.pathname.toString()));
     file = await Deno.open(path.join(base, url.pathname.toString()), {
       read: true,
     });
@@ -227,8 +237,7 @@ export const handleRequest = async (request) => {
   if (!ctx.request.headers.get("cookie")) {
     let sessionID = createId();
     ctx.response.headers["Set-Cookie"] =
-      sessionID =
-        `${sessionID}; Max-Age = 604800`;
+      sessionID = `${sessionID}; Max-Age = 604800`;
     ctx.sessionID = sessionID;
   } else {
     const cookie = ctx.request.headers.get("cookie");

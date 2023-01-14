@@ -114,15 +114,6 @@ export const addRegister = async (db, formData) => {
     `INSERT INTO userdata (vorname, nachname, email, passwort) VALUES (?, ?, ?, ?);`,
     [formData.vorname, formData.nachname, formData.email, passwortCrypt]
   );
-  /*let angemeldeterUser = await db.query(
-    `SELECT * FROM userData WHERE email = ?;`,
-    [formData.email]
-  );
-  angemeldeterUser = {
-    email: userData[0][3],
-    passwortCrypt: userData[0][4],
-  };
-  return angemeldeterUser;*/
 };
 
 export const userExistiert = async (db, email) => {
@@ -156,6 +147,11 @@ export const getNutzer = async (db, email) => {
     status: nutzer[0][5],
   };
   return nutzer;
+};
+
+export const schuhEntfernen = async (db, schuhName) => {
+  console.log(schuhName + "SCHUH WURDE ENTFERNT");
+  await db.query(`DELETE FROM schuh WHERE schuhName = ?;`, [schuhName]);
 };
 
 /**

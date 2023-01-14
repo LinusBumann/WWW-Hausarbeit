@@ -179,3 +179,19 @@ export function generateFilename(file) {
     "/Bilder/" + crypto.randomUUID() + "." + mediaTypes.extension(file.type)
   );
 }
+
+export async function schuheEntfernen(ctx) {
+  const formData = await ctx.request.formData();
+  console.log(ctx.params.schuhName);
+
+  const data = {
+    schuhName: formData.get("schuhTitel"),
+  };
+
+  model.schuhEntfernen(ctx.db, data.schuhName);
+
+  ctx.redirect = new Response(null, {
+    status: 302,
+    headers: { Location: "/" },
+  });
+}
