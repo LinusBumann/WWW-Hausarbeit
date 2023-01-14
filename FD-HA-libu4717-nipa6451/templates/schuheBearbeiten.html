@@ -2,7 +2,7 @@
 
 <main class="kMain">
   <form
-    action="http://localhost:9000/baureihe/{{dbData.baureiheID}}"
+    action="http://localhost:9000/schuheBearbeiten/{{dbData.schuhID}}"
     method="post"
   >
     <h1>Schuh Bearbeiten</h1>
@@ -26,6 +26,7 @@
         name="schuhInfoText"
         id="schuhInfoText"
         placeholder="Hier den Beschreibungstext eintragen"
+        value="{{dbData.schuhInfoText}}"
       />
 
       <label for="schuhKommentar">Kommentar zu Schuh</label>
@@ -35,6 +36,7 @@
         name="schuhKommentar"
         id="schuhKommentar"
         placeholder="Hier deinen Kommentar zum Schuh eintragen"
+        value="{{dbData.kommentare}}"
       />
     </div>
     <input class="Senden" type="submit" value="Submit" />

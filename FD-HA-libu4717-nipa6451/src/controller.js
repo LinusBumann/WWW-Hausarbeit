@@ -198,7 +198,7 @@ export async function index(ctx) {
   return ctx;
 }
 
-export async function schuheBearbeiten(ctx) {
+export async function schuheBearbeitenGET(ctx) {
   debug("@index. ctx %O", ctx.request.url);
   const a = model.getSchuhID(ctx.db, ctx.params.schuhID);
   ctx.response.body = ctx.nunjucks.render("schuheBearbeiten.html", {
@@ -212,7 +212,7 @@ export async function schuheBearbeiten(ctx) {
 
 export async function schuheHinzufügen(ctx) {
   debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("schuheHinzufügen.html", {
+  ctx.response.body = ctx.nunjucks.render("schuhHinzufügen.html", {
     nutzer: ctx.nutzer,
   });
   ctx.response.status = 200;

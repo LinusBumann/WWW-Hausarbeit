@@ -14,7 +14,16 @@ export const isValidText = (text) => text.length >= 3;
 
 export const isValidTitle = (text) => text.length >= 1;
 
-export async function addRegister(ctx, emailError, passwortError) {
+export async function logoutUser(ctx) {
+  model.deleteSession(ctx.db, ctx.sessionID);
+  ctx.redirect = new Response(null, {
+    status: 302,
+    headers: { Location: "/login" },
+  });
+  return ctx;
+}
+
+export async function addRegister(ctx) {
   ctx.response.body = await ctx.nunjucks.render("register.html", {});
   ctx.response.status = 200;
   ctx.response.headers["content-type"] = "text/html";
@@ -34,7 +43,6 @@ export async function submitAddRegister(ctx) {
   const vorhandenerUser = await model.userExistiert(ctx.db, data.email);
   const errors = {};
   if (pwVergleich && !vorhandenerUser) {
-    model.createSession(ctx.db, data.email, ctx.sessionID);
     model.addRegister(ctx.db, data);
     ctx.redirect = new Response(null, {
       status: 302,
@@ -69,9 +77,9 @@ export async function submitAddLogin(ctx) {
     passwort: formData.get("passwort"),
   };
   const nutzerPasswort = await model.getNutzerPasswort(ctx.db, data.email);
-  console.log("Hashwert:", nutzerPasswort);
+  //console.log("Hashwert:", nutzerPasswort);
   const gleichesPasswort = await bcrypt.compare(data.passwort, nutzerPasswort);
-  console.log("uncryptPW:", data.passwort);
+  //console.log("uncryptPW:", data.passwort);
   if (gleichesPasswort) {
     model.createSession(ctx.db, data.email, ctx.sessionID);
     ctx.redirect = new Response(null, {
@@ -94,15 +102,36 @@ export async function submitAddLogin(ctx) {
 }
 
 export async function submitAddSchuhBearbeitung(ctx) {
+  console.log("Schuh wurde bearbeitet");
   const formData = await ctx.request.formData();
-  //const schuhID = model.getSchuhID(ctx.db, ctx.params.schuhID);
+  const schuhID = model.getSchuhID(ctx.db, ctx.params.schuhID);
   const data = {
-    //schuhID: schuhID,
     schuhTitel: formData.get("schuhTitel"),
     schuhImageLink: formData.get("schuhImage"),
     schuhInfoText: formData.get("schuhInfoText"),
     schuhKommentar: formData.get("schuhKommentar"),
+    schuhID: Number(schuhID),
   };
+  model.bearbeiteSchuheintrag(ctx.db, data);
+  ctx.redirect = new Response(null, {
+    status: 302,
+    headers: { Location: "/" },
+  });
+}
 
-  const bearbeiteterEintrag = await model.bearbeiteSchuheintrag(ctx.db, data);
+export async function submitAddSchuheHinzufügen(ctx) {
+  console.log("Schuh wurde hinzugefügt");
+  const formData = await ctx.request.formData();
+  const data = {
+    schuhTitel: formData.get("schuhTitel"),
+    schuhBaureihe: formData.get("baureihe"),
+    schuhImageLink: formData.get("schuhImage"),
+    schuhInfoText: formData.get("schuhInfoText"),
+    schuhKommentar: formData.get("schuhKommentar"),
+  };
+  model.addSchuh(ctx.db, data);
+  ctx.redirect = new Response(null, {
+    status: 302,
+    headers: { Location: "/" },
+  });
 }

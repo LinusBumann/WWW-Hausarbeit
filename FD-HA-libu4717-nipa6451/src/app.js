@@ -106,11 +106,11 @@ const router = async (ctx) => {
   //Register GET und POST
   if (url.pathname.match("/register")) {
     if (myRequest.method == "GET") {
-      console.log("GET");
+      console.log("GET: Registrieren");
       return await formController.addRegister(ctx);
     }
     if (myRequest.method == "POST") {
-      console.log("POST");
+      console.log("POST: Registrieren");
       return await formController.submitAddRegister(ctx);
     }
   }
@@ -118,17 +118,24 @@ const router = async (ctx) => {
   //Login
   if (url.pathname.match("/login")) {
     if (myRequest.method == "GET") {
-      console.log("GET");
+      console.log("GET: Login");
       return await formController.addLogin(ctx);
     }
     if (myRequest.method == "POST") {
-      console.log("POST");
+      console.log("POST: Login");
       return await formController.submitAddLogin(ctx);
     }
   }
   //Profil
   if (url.pathname.match("/userProfile")) {
-    return await controller.userProfile(ctx);
+    if (myRequest.method == "GET") {
+      console.log("GET: UserProfile");
+      return await controller.userProfile(ctx);
+    }
+    if (myRequest.method == "POST") {
+      console.log("POST: Logout");
+      return await formController.logoutUser(ctx);
+    }
   }
 
   //SchuhBearbeiten
@@ -138,11 +145,23 @@ const router = async (ctx) => {
     let split = fullURL.split("/");
     let schuhID = split[2];
     ctx.params.schuhID = Number(schuhID);
-    return await controller.schuheBearbeiten(ctx);
+    if (myRequest.method == "GET") {
+      console.log("GET: Bearbeiten");
+      return await controller.schuheBearbeitenGET(ctx);
+    }
+    if (myRequest.method == "POST") {
+      console.log("POST: Bearbeiten");
+      return await formController.submitAddSchuhBearbeitung(ctx);
+    }
   }
   //SchuhHinzufügen
-  if (url.pathname.match("/schuheHinzufügen")) {
-    return await controller.schuheHinzufügen(ctx);
+  if (url.pathname.match("/schuheHinzufeugen")) {
+    if (myRequest.method == "GET") {
+      return await controller.schuheHinzufügen(ctx);
+    }
+    if (myRequest.method == "POST") {
+      return await formController.submitAddSchuheHinzufügen(ctx);
+    }
   }
 
   //404-Error
@@ -216,7 +235,7 @@ export const handleRequest = async (request) => {
   }
 
   ctx = await getSessionNutzer(ctx);
-  console.log(ctx.nutzer);
+  //console.log(ctx.nutzer);
 
   const base = "assets";
   ctx = await serveStaticFile(base, ctx);

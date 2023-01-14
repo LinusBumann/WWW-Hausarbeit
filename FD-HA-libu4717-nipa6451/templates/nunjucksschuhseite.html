@@ -9,8 +9,9 @@
         <div class="content">
           <h3>{{dbData.schuhName}}</h3>
           <p>{{dbData.schuhInfoText}}</p>
+          <p>{{dbData.kommentare}}</p>
         </div>
-        {% if nutzer %}
+        {% if nutzer.status %}
         <a class="whiteButton" href="/schuheBearbeiten/{{dbData.schuhID}}"
           >Bearbeiten</a
         >
@@ -19,8 +20,8 @@
       {%endfor%}
     </div>
   </div>
-  {% if nutzer %}
-  <a class="whiteButton" href="/schuheHinzufügen">Hinzufügen</a>
+  {% if nutzer.status %}
+  <a class="whiteButton" href="/schuheHinzufeugen">Hinzufügen</a>
   {% endif %}
 </main>
 {%endblock%}

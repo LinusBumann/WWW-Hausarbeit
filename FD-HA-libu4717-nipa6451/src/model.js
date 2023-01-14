@@ -15,6 +15,10 @@ import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
  */
 export const index = (data) => data;
 
+export const deleteSession = async (db, sessionID) => {
+  await db.query(`DELETE FROM sessions WHERE sessionID = ?;`, [sessionID]);
+};
+
 export const createSession = async (db, email, sessionID) => {
   await db.query(
     `INSERT INTO sessions (sessionID, userEmail, expirationDate) VALUES (?, ?, ?);`,
@@ -55,15 +59,36 @@ export const getSchuh = (db, baureiheID) => {
   const query = `SELECT * FROM schuh WHERE baureiheID = :baureiheID`;
   return db.queryEntries(query, { baureiheID: baureiheID });
 };
+
 export const getSchuhID = (db, schuhID) => {
   const query = `SELECT * FROM schuh WHERE schuhID = :schuhID`;
   return db.queryEntries(query, { schuhID: schuhID })[0];
 };
 
 export const bearbeiteSchuheintrag = async (db, data) => {
+  console.log("Model für Bearbeitung");
   await db.query(
-    `UPDATE schuh SET schuhName = ?, schuhImageLink = ?, schuhInfoText = ? WHERE ;`,
-    [data.schuhTitel, data.schuhImageLink, data.schuhInfoText]
+    `UPDATE schuh SET schuhName = ?, schuhImageLink = ?, schuhInfoText = ?, kommentare = ? WHERE schuhID = ?`,
+    [
+      data.schuhID,
+      data.schuhTitel,
+      "/Bilder/" + data.schuhImageLink,
+      data.schuhInfoText,
+      data.schuhKommentar,
+    ]
+  );
+};
+
+export const addSchuh = async (db, data) => {
+  await db.query(
+    `INSERT INTO schuh (baureiheID, schuhName, schuhImageLink, schuhInfoText, kommentare) VALUES (?, ?, ?, ?, ?);`,
+    [
+      data.schuhBaureihe,
+      data.schuhTitel,
+      "/Bilder/" + data.schuhImageLink,
+      data.schuhInfoText,
+      data.schuhKommentar,
+    ]
   );
 };
 
@@ -89,7 +114,7 @@ export const addRegister = async (db, formData) => {
     `INSERT INTO userdata (vorname, nachname, email, passwort) VALUES (?, ?, ?, ?);`,
     [formData.vorname, formData.nachname, formData.email, passwortCrypt]
   );
-  let angemeldeterUser = await db.query(
+  /*let angemeldeterUser = await db.query(
     `SELECT * FROM userData WHERE email = ?;`,
     [formData.email]
   );
@@ -97,7 +122,7 @@ export const addRegister = async (db, formData) => {
     email: userData[0][3],
     passwortCrypt: userData[0][4],
   };
-  return angemeldeterUser;
+  return angemeldeterUser;*/
 };
 
 export const userExistiert = async (db, email) => {
@@ -110,13 +135,13 @@ export const userExistiert = async (db, email) => {
 };
 
 export const getNutzerPasswort = async (db, email) => {
-  const nutzerEmail = await db.query(
+  const nutzerDaten = await db.query(
     `SELECT * FROM userData WHERE email = ?;`,
     [email]
   );
-  if (nutzerEmail.length == 0) return false;
+  if (nutzerDaten.length == 0) return false;
 
-  return nutzerEmail[0][4];
+  return nutzerDaten[0][4];
 };
 
 export const getNutzer = async (db, email) => {
@@ -128,14 +153,10 @@ export const getNutzer = async (db, email) => {
     vorname: nutzer[0][1],
     nachname: nutzer[0][2],
     email: nutzer[0][3],
+    status: nutzer[0][5],
   };
   return nutzer;
 };
-
-/*export const logoutUser = async (db) => {
-  let query = `DELETE FROM sessions`;
-  return db.queryEntries(query);
-};*/
 
 /**
  * Update a note.
