@@ -4,6 +4,7 @@
   <form
     action="http://localhost:9000/schuheBearbeiten/{{dbData.schuhID}}"
     method="post"
+    enctype="multipart/form-data"
   >
     <h1>Schuh Bearbeiten</h1>
     <label for="schuhTitel">Schuhname</label>
@@ -15,7 +16,9 @@
         placeholder="Hier den Namen des Schuhs eintragen"
         value="{{dbData.schuhName}}"
       />
-
+      {% if errors.image%}
+      <p>{{errors}}</p>
+      {% endif %}
       <label for="imageUpload">Bild hochladen</label>
       <input type="file" id="schuhImage" name="schuhImage" />
 

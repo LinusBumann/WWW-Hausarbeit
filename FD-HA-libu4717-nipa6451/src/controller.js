@@ -211,7 +211,7 @@ export async function schuheBearbeitenGET(ctx) {
 
   const a = model.getSchuhID(ctx.db, ctx.params.schuhID);
 
-  console.log(ctx.params);
+  console.log("Controller: ", ctx.params.schuhID);
   ctx.response.body = ctx.nunjucks.render("schuheBearbeiten.html", {
     dbData: a,
     nutzer: ctx.nutzer,

@@ -145,7 +145,7 @@ const router = async (ctx) => {
   //SchuhBearbeiten
   if (url.pathname.match("/schuheBearbeiten")) {
     //Auslesen der Schuh-ID
-    if (ctx.nutzer && ctx.nutzer.status == "admin") {
+    if (ctx.nutzer) {
       let fullURL = url.pathname;
       let split = fullURL.split("/");
       let schuhID = split[2];
@@ -262,7 +262,7 @@ export const handleRequest = async (request) => {
   }
 
   ctx = await getSessionNutzer(ctx);
-  console.log(ctx.nutzer);
+  //console.log(ctx.nutzer);
 
   const base = "assets";
   ctx = await serveStaticFile(base, ctx);

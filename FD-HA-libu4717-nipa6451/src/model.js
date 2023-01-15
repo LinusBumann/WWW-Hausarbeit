@@ -67,14 +67,15 @@ export const getSchuhID = (db, schuhID) => {
 
 export const bearbeiteSchuheintrag = async (db, data) => {
   console.log("Model für Bearbeitung");
+  //console.log(Number(data.schuhID));
   await db.query(
     `UPDATE schuh SET schuhName = ?, schuhImageLink = ?, schuhInfoText = ?, kommentare = ? WHERE schuhID = ?`,
     [
-      data.schuhID,
       data.schuhTitel,
-      "/Bilder/" + data.schuhImageLink,
+      data.schuhImageLink,
       data.schuhInfoText,
       data.schuhKommentar,
+      Number(data.schuhID),
     ]
   );
 };

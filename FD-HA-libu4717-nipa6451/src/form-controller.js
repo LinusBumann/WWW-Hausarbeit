@@ -103,26 +103,64 @@ export async function submitAddLogin(ctx) {
   }
 }
 
-export async function submitAddSchuhBearbeitung(ctx) {
-  console.log("Schuh wurde bearbeitet");
+export async function schuheEntfernen(ctx) {
   const formData = await ctx.request.formData();
-  const schuhID = model.getSchuhID(ctx.db, ctx.params.schuhID);
   const data = {
-    schuhTitel: formData.get("schuhTitel"),
-    schuhImageLink: formData.get("schuhImage"),
-    schuhInfoText: formData.get("schuhInfoText"),
-    schuhKommentar: formData.get("schuhKommentar"),
-    schuhID: Number(schuhID),
+    schuhName: formData.get("schuhTitel"),
   };
-  model.bearbeiteSchuheintrag(ctx.db, data);
+  model.schuhEntfernen(ctx.db, data.schuhName);
   ctx.redirect = new Response(null, {
     status: 302,
     headers: { Location: "/" },
   });
 }
 
+export async function submitAddSchuhBearbeitung(ctx) {
+  //console.log("Schuh wurde bearbeitet");
+  const formData = await ctx.request.formData();
+  const schuhObject = model.getSchuhID(ctx.db, ctx.params.schuhID);
+  console.log("Form-Controller: ", schuhObject);
+  const data = {
+    schuhTitel: formData.get("schuhTitel"),
+    schuhImageLink: formData.get("schuhImage"),
+    schuhInfoText: formData.get("schuhInfoText"),
+    schuhKommentar: formData.get("schuhKommentar"),
+    schuhID: schuhObject.schuhID,
+  };
+  console.log(data.schuhImageLink);
+  const errors = await validateImage(data.schuhImageLink);
+  if (errors) {
+    formData.schuhImage = undefined;
+    ctx.response.body = ctx.nunjucks.render("schuheBearbeiten.html", {
+      errors: errors,
+    });
+    ctx.response.status = 200;
+    ctx.response.headers["content-type"] = "text/html";
+    return ctx;
+  } else {
+    const filename = generateFilename(data.schuhImageLink);
+    console.log("Form-Controller, Hiinzufügen: ", filename);
+    const destFile = await Deno.open(
+      path.join(Deno.cwd(), "assets", filename),
+      { create: true, write: true, truncate: true }
+    );
+    console.log("Deno CWD", Deno.cwd(), "DENO END");
+    await data.schuhImageLink.stream().pipeTo(destFile.writable);
+    data.schuhImageLink = filename;
+    console.log(data.schuhImageLink);
+    model.bearbeiteSchuheintrag(ctx.db, data);
+    ctx.redirect = new Response(null, {
+      status: 302,
+      headers: { Location: "/" },
+    });
+    return ctx;
+  }
+  //console.log("Deno CWD", Deno.cwd(), "DENO END");
+  //console.log(data.schuhImageLink);
+}
+
 export async function submitAddSchuheHinzufügen(ctx) {
-  console.log("Schuh wurde hinzugefügt");
+  //console.log("Schuh wurde hinzugefügt");
   const formData = await ctx.request.formData();
   const data = {
     schuhTitel: formData.get("schuhTitel"),
@@ -131,6 +169,7 @@ export async function submitAddSchuheHinzufügen(ctx) {
     schuhInfoText: formData.get("schuhInfoText"),
     schuhKommentar: formData.get("schuhKommentar"),
   };
+  console.log(data.schuhImageLink);
 
   const errors = await validateImage(data.schuhImageLink);
 
@@ -144,6 +183,7 @@ export async function submitAddSchuheHinzufügen(ctx) {
     return ctx;
   } else {
     const filename = generateFilename(data.schuhImageLink);
+    console.log("Form-Controller, Hiinzufügen: ", filename);
     const destFile = await Deno.open(
       path.join(Deno.cwd(), "assets", filename),
       { create: true, write: true, truncate: true }
@@ -178,20 +218,4 @@ export function generateFilename(file) {
   return (
     "/Bilder/" + crypto.randomUUID() + "." + mediaTypes.extension(file.type)
   );
-}
-
-export async function schuheEntfernen(ctx) {
-  const formData = await ctx.request.formData();
-  console.log(ctx.params.schuhName);
-
-  const data = {
-    schuhName: formData.get("schuhTitel"),
-  };
-
-  model.schuhEntfernen(ctx.db, data.schuhName);
-
-  ctx.redirect = new Response(null, {
-    status: 302,
-    headers: { Location: "/" },
-  });
 }
