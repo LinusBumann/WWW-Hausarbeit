@@ -122,55 +122,72 @@ const router = async (ctx) => {
       return await formController.addLogin(ctx);
     }
     if (myRequest.method == "POST") {
-     // console.log("POST: Login");
+      // console.log("POST: Login");
       return await formController.submitAddLogin(ctx);
     }
   }
   //Profil
   if (url.pathname.match("/userProfile")) {
-    if (myRequest.method == "GET") {
-      //console.log("GET: UserProfile");
-      return await controller.userProfile(ctx);
-    }
-    if (myRequest.method == "POST") {
-      //console.log("POST: Logout");
-      return await formController.logoutUser(ctx);
+    if (ctx.nutzer) {
+      if (myRequest.method == "GET") {
+        //console.log("GET: UserProfile");
+        return await controller.userProfile(ctx);
+      }
+      if (myRequest.method == "POST") {
+        //console.log("POST: Logout");
+        return await formController.logoutUser(ctx);
+      }
+    } else if (ctx.nutzer == undefined) {
+      return await controller.permissionsDenied(ctx);
     }
   }
 
   //SchuhBearbeiten
   if (url.pathname.match("/schuheBearbeiten")) {
     //Auslesen der Schuh-ID
-    let fullURL = url.pathname;
-    let split = fullURL.split("/");
-    let schuhID = split[2];
-    ctx.params.schuhID = Number(schuhID);
-    if (myRequest.method == "GET") {
-      console.log("GET: Bearbeiten");
-      return await controller.schuheBearbeitenGET(ctx);
-    }
-    if (myRequest.method == "POST") {
-      //console.log("POST: Bearbeiten");
-      return await formController.submitAddSchuhBearbeitung(ctx);
+    if (ctx.nutzer && ctx.nutzer.status == "admin") {
+      let fullURL = url.pathname;
+      let split = fullURL.split("/");
+      let schuhID = split[2];
+      ctx.params.schuhID = Number(schuhID);
+
+      if (myRequest.method == "GET") {
+        console.log("GET: Bearbeiten");
+        return await controller.schuheBearbeitenGET(ctx);
+      }
+      if (myRequest.method == "POST") {
+        //console.log("POST: Bearbeiten");
+        return await formController.submitAddSchuhBearbeitung(ctx);
+      }
+    } else if (ctx.nutzer == undefined || ctx.nutzer.status != "admin") {
+      return await controller.permissionsDenied(ctx);
     }
   }
   //SchuhHinzufügen
   if (url.pathname.match("/schuheHinzufeugen")) {
-    if (myRequest.method == "GET") {
-      return await controller.schuheHinzufügen(ctx);
-    }
-    if (myRequest.method == "POST") {
-      return await formController.submitAddSchuheHinzufügen(ctx);
+    if (ctx.nutzer && ctx.nutzer.status == "admin") {
+      if (myRequest.method == "GET") {
+        return await controller.schuheHinzufügen(ctx);
+      }
+      if (myRequest.method == "POST") {
+        return await formController.submitAddSchuheHinzufügen(ctx);
+      }
+    } else if (ctx.nutzer == undefined || ctx.nutzer.status != "admin") {
+      return await controller.permissionsDenied(ctx);
     }
   }
 
   // Schuhe Entfernen
   if (url.pathname.match("/schuheEntfernen")) {
-    if (myRequest.method == "GET") {
-      return await controller.schuheEntfernen(ctx);
-    }
-    if (myRequest.method == "POST") {
-      return await formController.schuheEntfernen(ctx);
+    if (ctx.nutzer && ctx.nutzer.status == "admin") {
+      if (myRequest.method == "GET") {
+        return await controller.schuheEntfernen(ctx);
+      }
+      if (myRequest.method == "POST") {
+        return await formController.schuheEntfernen(ctx);
+      }
+    } else if (ctx.nutzer == undefined || ctx.nutzer.status != "admin") {
+      return await controller.permissionsDenied(ctx);
     }
   }
 
@@ -245,7 +262,7 @@ export const handleRequest = async (request) => {
   }
 
   ctx = await getSessionNutzer(ctx);
-  //console.log(ctx.nutzer);
+  console.log(ctx.nutzer);
 
   const base = "assets";
   ctx = await serveStaticFile(base, ctx);

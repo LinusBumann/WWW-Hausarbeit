@@ -91,7 +91,7 @@ export async function submitAddLogin(ctx) {
     return ctx;
   } else {
     const errors = {
-      passwort: "Falsches Passwort!",
+      passwort: "E-Mail oder Passwort nicht korrekt!",
     };
     ctx.response.body = await ctx.nunjucks.render("login.html", {
       form: data,

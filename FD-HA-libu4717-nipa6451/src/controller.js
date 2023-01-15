@@ -5,8 +5,16 @@ const debug = Debug("app:controller");
 
 export async function error404(ctx) {
   //debug("@error404. ctx %O", ctx.request.url);
-  const nutzer = await model.getNutzer(ctx.db);
   ctx.response.body = ctx.nunjucks.render("error404.html", {
+    nutzer: ctx.nutzer,
+  });
+  ctx.response.status = 404;
+  ctx.response.headers["content-type"] = "text/html";
+  return ctx;
+}
+export async function permissionsDenied(ctx) {
+  //debug("@error404. ctx %O", ctx.request.url);
+  ctx.response.body = ctx.nunjucks.render("permissionsDenied.html", {
     nutzer: ctx.nutzer,
   });
   ctx.response.status = 404;
@@ -25,7 +33,7 @@ export async function about(ctx) {
 }
 
 export async function baureihen(ctx) {
- // debug("@index. ctx %O", ctx.request.url);
+  // debug("@index. ctx %O", ctx.request.url);
   const a = model.getHersteller(ctx.db, ctx.params.herstellerID);
   ctx.response.body = ctx.nunjucks.render("nunjucksmarkenseite.html", {
     dbData: a,
@@ -178,7 +186,7 @@ export async function module(ctx) {
 }
 
 export async function userProfile(ctx) {
- // debug("@index. ctx %O", ctx.request.url);
+  // debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("userProfile.html", {
     nutzer: ctx.nutzer,
   });
@@ -187,7 +195,7 @@ export async function userProfile(ctx) {
   return ctx;
 }
 export async function index(ctx) {
- // debug("@index. ctx %O", ctx.request.url);
+  // debug("@index. ctx %O", ctx.request.url);
   const a = model.getIndexValues(ctx.db);
   ctx.response.body = ctx.nunjucks.render("nunjucksindex.html", {
     dbData: a,
@@ -200,8 +208,10 @@ export async function index(ctx) {
 
 export async function schuheBearbeitenGET(ctx) {
   //debug("@index. ctx %O", ctx.request.url);
+
   const a = model.getSchuhID(ctx.db, ctx.params.schuhID);
-  if(ctx.params.)
+
+  console.log(ctx.params);
   ctx.response.body = ctx.nunjucks.render("schuheBearbeiten.html", {
     dbData: a,
     nutzer: ctx.nutzer,
@@ -212,7 +222,7 @@ export async function schuheBearbeitenGET(ctx) {
 }
 
 export async function schuheHinzufügen(ctx) {
- // debug("@index. ctx %O", ctx.request.url);
+  // debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("schuhHinzufügen.html", {
     nutzer: ctx.nutzer,
   });
