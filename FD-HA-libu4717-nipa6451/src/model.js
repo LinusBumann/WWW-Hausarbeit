@@ -22,7 +22,7 @@ export const deleteSession = async (db, sessionID) => {
 export const createSession = async (db, email, sessionID) => {
   await db.query(
     `INSERT INTO sessions (sessionID, userEmail, expirationDate) VALUES (?, ?, ?);`,
-    [sessionID, email, Date.now() + 1000 * 60 * 60 * 24 * 7]
+    [sessionID, email, Date.now() + 1000 * 60 * 60 * 24 * 7],
   );
 };
 
@@ -76,7 +76,7 @@ export const bearbeiteSchuheintrag = async (db, data) => {
       data.schuhInfoText,
       data.schuhKommentar,
       Number(data.schuhID),
-    ]
+    ],
   );
 };
 
@@ -89,7 +89,7 @@ export const addSchuh = async (db, data) => {
       data.schuhImageLink,
       data.schuhInfoText,
       data.schuhKommentar,
-    ]
+    ],
   );
 };
 
@@ -113,14 +113,14 @@ export const addRegister = async (db, formData) => {
 
   await db.query(
     `INSERT INTO userdata (vorname, nachname, email, passwort) VALUES (?, ?, ?, ?);`,
-    [formData.vorname, formData.nachname, formData.email, passwortCrypt]
+    [formData.vorname, formData.nachname, formData.email, passwortCrypt],
   );
 };
 
 export const userExistiert = async (db, email) => {
   const nutzerEmail = await db.query(
     `SELECT * FROM userData WHERE email = ?;`,
-    [email]
+    [email],
   );
   if (nutzerEmail.length == 0) return false;
   return true;
@@ -129,7 +129,7 @@ export const userExistiert = async (db, email) => {
 export const getNutzerPasswort = async (db, email) => {
   const nutzerDaten = await db.query(
     `SELECT * FROM userData WHERE email = ?;`,
-    [email]
+    [email],
   );
   if (nutzerDaten.length == 0) return false;
 

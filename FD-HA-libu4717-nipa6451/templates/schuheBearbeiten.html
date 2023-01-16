@@ -15,12 +15,14 @@
         id="schuhTitel"
         placeholder="Hier den Namen des Schuhs eintragen"
         value="{{dbData.schuhName}}"
+        required
       />
       {% if errors.image%}
       <p>{{errors}}</p>
       {% endif %}
       <label for="imageUpload">Bild hochladen</label>
-      <input type="file" id="schuhImage" name="schuhImage" />
+      <input type="file" id="schuhImage" name="schuhImage" 
+      required/>
 
       <label for="schuhInfoText">Beschreibungstext</label>
       <input
@@ -30,6 +32,7 @@
         id="schuhInfoText"
         placeholder="Hier den Beschreibungstext eintragen"
         value="{{dbData.schuhInfoText}}"
+        required
       />
 
       <label for="schuhKommentar">Kommentar zu Schuh</label>
@@ -40,6 +43,7 @@
         id="schuhKommentar"
         placeholder="Hier deinen Kommentar zum Schuh eintragen"
         value="{{dbData.kommentare}}"
+        required
       />
     </div>
     <input class="Senden" type="submit" value="Submit" />

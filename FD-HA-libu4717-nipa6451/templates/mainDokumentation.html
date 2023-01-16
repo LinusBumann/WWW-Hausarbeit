@@ -13,8 +13,9 @@
     <li>Login: nipa6451</li>
   </ol>
   <ol class="list1">
-    <h1>Frontend</h1>
+    
     <li>
+      <h1>Frontend</h1>
       <h2>Ideen und Konzepte</h2>
       <p>
         Was die Idee und das Konzept der Seite angeht haben wir uns an der
@@ -58,9 +59,10 @@
     <li>
       <h2>Fertiger Seitenaufbau</h2>
       <ol class="list2">
-        <p>Aufbau der fertigen Website</p>
+        
         <ul class="list3">
           <li>
+            <p>Aufbau der fertigen Website</p>
             <p>Startseite</p>
             <ul class="list4">
               <li><p>Großes Bild mit Webseitenname</p></li>
@@ -265,19 +267,33 @@
         <a href="/kollophon">Hier geht es zum Kolophon</a>
       </p>
       <p>
-        <a href="/Erklärung-libu4717">Erklärung: Linus Bumann / </a>
-        <a href="/Erklärung-nipa6451">Erklärung: Nico Paulsen</a>
+        <a href="/Erklaerung-libu4717">Erklärung: Linus Bumann / </a>
+        <a href="/Erklaerung-nipa6451">Erklärung: Nico Paulsen</a>
       </p>
     </li>
-    <h1>Backend</h1>
+    
     <li>
+      <h1>Backend</h1>
       <h2>Konzepte</h2>
       <p>
         Im Backend haben wir uns an den Aufbau aus den Laboraufgaben gehalten.
         Zur Steuerung der Seite haben wir die server.js, app.js, controller.js,
         form-controller.js und die model.js verwendet. Für die Daten unserer
         Seite, die Veränderbar sind, haben wir dann noch eine Datenbank mit den
-        passenden Tabellen angelegt.
+        passenden Tabellen angelegt. Das Einloggen auf der Website ist nach der
+        Registrierung möglich. Für die Registrierung gibt ein Nutzer die zu
+        verwendene E-Mail Adresse, einen vollständigen Namen und ein Passwort
+        ein, welches er wiederholen muss. Ist die Registrierung abgeschlossen,
+        so kann sich der Nutzer mit der angegebenen E-Mail und dem Passwort
+        anmelden. Nach Anmeldung wird dem Nutzer ein Bearbeitungs-Button
+        angezeigt, mit dem die jeweilige Schuhkarte bearbeitet werden kann. Es
+        ist möglich, den Schuhnamen, das Bild, den Beschreibungstext und ein
+        Kommentar zu erstellen. Ist der Nutzer als Admin eingeloggt (die
+        Registrierung erfolgt direkt über die Datenbank), dann können zusätzlich
+        zu dem Bearbeiten auch ganze Schuhkarten hinzugefügt oder gelöscht
+        werden. Über die Navigationsbar kann der Nutzer auf sein Profil
+        zugreifen und sich ausloggen. Der Tab "Profil" wird erst angezeigt,
+        sobald sich ein Nutzer eingeloggt hat.
       </p>
     </li>
     <li>
@@ -304,10 +320,13 @@
         die Funktion auch nur in dem Ordner, bei uns assets, Bilder und das CSS
         holt. Dann rufen wir die router() auf. Diese überprüft dann anhand der
         url, ob es diese gibt. Falls es diese nicht gibt, wird man auf die
-        404-Errorseite geleitet. Gibt es den pathname rufen wir die passende
-        Funktion im controller oder form-controller auf. Diese erläutern wir
-        später. Der router sorgt also dafür, dass die richtige Seite aufgerufen
-        werden kann.
+        404-Errorseite geleitet. Bei Bestimmten Seiten soll verhindert werden,
+        dass sich ein Nutzer ohne Zugriffsrechte über die URL trotzdem Zugriff
+        über die Seite verschaffen kann. Dazu haben wir eine if-Abrage
+        eingebaut, die die Rechte des Nutzers überprüft. Gibt es den Pathname
+        rufen wir die passende Funktion im controller oder form-controller auf.
+        Diese erläutern wir später. Der router sorgt also dafür, dass die
+        richtige Seite aufgerufen werden kann.
       </p>
     </li>
     <li>

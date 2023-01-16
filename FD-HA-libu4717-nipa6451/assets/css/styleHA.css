@@ -69,7 +69,7 @@ a {
   /* top right bottom left */
   margin: 0px 40px 0px 40px;
 }
-.brandIndexS1 h1,
+/*.brandIndexS1 h1,
 .brandIndexS2 h1,
 .brandIndexS3 h1,
 .brandIndexS4 h1 {
@@ -81,7 +81,7 @@ a {
 .brandIndexS4 h2 {
   font-size: 0.7em;
   margin: 0 3vw 0 3vw;
-}
+}*/
 .backgroundTop h2 {
   font-size: 3vw;
   color: var(--black);
@@ -244,14 +244,14 @@ nav ul li a:hover {
   padding: 10px 20px 10px 20px;
 }
 
-.adidaslogo {
+/*.adidaslogo {
   width: 105px;
   position: relative;
   bottom: 100px;
   z-index: 1;
 }
 /* Puma */
-.SchuhKarte .pumabutton {
+/*.SchuhKarte .pumabutton {
   background: #3d98d4;
   color: rgb(255, 255, 255);
   border-radius: 40px;
@@ -266,7 +266,7 @@ nav ul li a:hover {
   z-index: 1;
 }
 /* NB */
-.SchuhKarte .nbbutton {
+/*.SchuhKarte .nbbutton {
   background: #ec2727;
   color: rgb(255, 255, 255);
   border-radius: 40px;
@@ -281,7 +281,7 @@ nav ul li a:hover {
   z-index: 1;
 }
 /* Supreme */
-.SchuhKarte .supremebutton {
+/*.SchuhKarte .supremebutton {
   background: #b61f1f;
   color: rgb(255, 255, 255);
   border-radius: 40px;
@@ -296,7 +296,7 @@ nav ul li a:hover {
   z-index: 1;
 }
 /* Louis */
-.SchuhKarte .louibutton {
+/*.SchuhKarte .louibutton {
   background: #aa886a;
   color: rgb(255, 255, 255);
   border-radius: 40px;
@@ -309,7 +309,7 @@ nav ul li a:hover {
   position: relative;
   bottom: 100px;
   z-index: 1;
-}
+}*/
 /* SCHUHKARTEN ENDE */
 
 /* FOOTER ANFANG */
@@ -358,7 +358,7 @@ footer a:hover {
   margin: 0 10px 0 10px;
   padding: 120px 20px 40px 20px;
 }
-.UnterseitenS2 {
+/*.UnterseitenS2 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 0.6fr 1fr 0.6fr 1fr;
@@ -679,7 +679,7 @@ input::placeholder {
 /************************************** KONTAKT ENDE **************************************/
 
 /************************************** Brand Unterseiten **************************************/
-.brandIndexS1 {
+/*.brandIndexS1 {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 550px 1fr;
@@ -744,7 +744,7 @@ input::placeholder {
   border-bottom-right-radius: 80px;
   margin: 0 10px 0 10px;
   padding: 0px 20px 40px 20px;
-}
+}*/
 
 .backgroundTopAdidas {
   height: 1200px;
@@ -785,7 +785,7 @@ input::placeholder {
   bottom: 180px;
   z-index: 1;
 }
-.louisPicture {
+/*.louisPicture {
   width: 160px;
 }
 .bearBrickPicture {
@@ -793,10 +793,10 @@ input::placeholder {
 }
 .gucciPicture {
   width: 250px;
-}
+}*/
 
 /* botton color */
-.SchuhKarte .lightBlueButton {
+/*.SchuhKarte .lightBlueButton {
   background: lightblue;
   color: rgb(255, 255, 255);
   transition: 0.4s ease-in-out;
@@ -822,7 +822,7 @@ input::placeholder {
   position: relative;
   bottom: -70px;
   padding: 10px 20px 10px 20px;
-}
+}*/
 .blackButton {
   background: var(--black);
   color: rgb(255, 255, 255);
@@ -843,6 +843,7 @@ input::placeholder {
   padding: 10px 20px 10px 20px;
   font-size: 20px;
 }
+/*
 .SchuhKarte .orangeButton {
   background: rgb(254, 144, 0);
   color: rgb(255, 255, 255);
@@ -887,17 +888,20 @@ input::placeholder {
   position: relative;
   bottom: -70px;
   padding: 10px 20px 10px 20px;
-}
-.lightBlueButton:hover,
+}*/
+
+/*.lightBlueButton:hover,
 .brownButton:hover,
 .darkRedButton:hover,
-.blackButton:hover,
-.whiteButton:hover,
+
+
 .orangeButton:hover,
 .greyButton:hover,
 .purpleButton:hover,
 .greenButton:hover,
-.bordeauxButton:hover {
+.bordeauxButton:hover*/
+.whiteButton:hover,
+.blackButton:hover {
   padding: 10px 30px 10px 30px;
   transition: 0.2s;
 }
@@ -1381,16 +1385,18 @@ input::placeholder {
   }
 
   /* BUTTON POSITION SCHUHE */
-  .SchuhKarte .lightBlueButton,
+  /*.SchuhKarte .lightBlueButton,
   .SchuhKarte .brownButton,
   .SchuhKarte .darkRedButton,
-  .SchuhKarte .blackButton,
-  .SchuhKarte .whiteButton,
+
   .SchuhKarte .orangeButton,
   .SchuhKarte .greyButton,
   .SchuhKarte .purpleButton,
   .SchuhKarte .greenButton,
-  .SchuhKarte .bordeauxButton {
+  .SchuhKarte .bordeauxButton 
+  */
+  .SchuhKarte .blackButton,
+  .SchuhKarte .whiteButton{
     bottom: -140px;
   }
 
@@ -1444,7 +1450,7 @@ input::placeholder {
   .adidaslogo {
     width: 202px;
   }
-  .SchuhKarte .pumabutton {
+ /* .SchuhKarte .pumabutton {
     bottom: 0px;
   }
 
@@ -1461,7 +1467,7 @@ input::placeholder {
   .SchuhKarte .louibutton {
     bottom: 0px;
   }
-
+*/
   .SchuhKarte:hover .content {
     color: rgba(255, 255, 255, 1);
     margin-right: 20%;
@@ -1475,22 +1481,25 @@ input::placeholder {
   }
 
   /* Botton hover effect */
-  .nikebutton:hover,
-  .adidasbutton:hover,
-  .pumabutton:hover,
+
+  /*.pumabutton:hover,
   .nbbutton:hover,
   .supremebutton:hover,
-  .louibutton:hover {
+  .louibutton:hover 
+  */
+  .nikebutton:hover,
+  .adidasbutton:hover{
     padding: 10px 30px 10px 30px;
     transition: 0.2s;
   }
 
-  .nikebutton:not(:hover),
-  .adidasbutton:not(:hover),
-  .pumabutton:not(:hover),
+ 
+  /*.pumabutton:not(:hover),
   .nbbutton:not(:hover),
   .supremebutton:not(:hover),
-  .louibutton:not(:hover) {
+  .louibutton:not(:hover) */
+  .nikebutton:not(:hover),
+  .adidasbutton:not(:hover){
     padding: 10px 20px 10px 20px;
     transition: 0.2s;
   }
@@ -1504,7 +1513,7 @@ input::placeholder {
     position: relative;
     top: 45px;
   }
-  .SchuhKarte:hover .pumabutton {
+  /*.SchuhKarte:hover .pumabutton {
     position: relative;
     top: 20px;
   }
@@ -1519,7 +1528,7 @@ input::placeholder {
   .SchuhKarte:hover .louibutton {
     position: relative;
     top: 50px;
-  }
+  }*/
   .SchuhKarte:not(:hover) a {
     background: rgba(78, 78, 78, 0);
     color: rgba(255, 255, 255, 0);
@@ -1616,7 +1625,7 @@ input::placeholder {
   /* IMPRESSUNG ENDE */
 
   /* UNTERSEITEN ANFANG */
-  .UnterseitenS1 {
+  /*.UnterseitenS1 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
@@ -1661,7 +1670,7 @@ input::placeholder {
   .UnterseitenS3 h1,
   .UnterseitenS4 h1 {
     font-size: 4em;
-  }
+  }*/
   .imgLot1 {
     border-top-left-radius: 80px;
     border-top-right-radius: 0;
@@ -1683,7 +1692,7 @@ input::placeholder {
     padding-bottom: 20px;
     box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.11);
   }
-  .imgLobster {
+  /*.imgLobster {
     border-bottom-right-radius: 80px;
     border-top-left-radius: 0px;
     border-top-right-radius: 80px;
@@ -1757,7 +1766,7 @@ input::placeholder {
   .imgKoffer img {
     margin-bottom: 0;
   }
-
+*/
   /* UNTERSEITEN Ende */
   /************************************** KONTAKT ANFANG **************************************/
 
@@ -1799,15 +1808,17 @@ input::placeholder {
 @media only screen and (min-width: 1220px) {
   /* BUTTON POSITION SCHUHE*/
 
-  .SchuhKarte .lightBlueButton,
+  /*.SchuhKarte .lightBlueButton,
   .SchuhKarte .brownButton,
   .SchuhKarte .darkRedButton,
-  .SchuhKarte .blackButton,
+  
   .SchuhKarte .orangeButton,
   .SchuhKarte .greyButton,
   .SchuhKarte .purpleButton,
   .SchuhKarte .greenButton,
-  .SchuhKarte .bordeauxButton {
+  .SchuhKarte .bordeauxButton
+  */
+  .SchuhKarte .blackButton{
     bottom: -45px;
   }
   .SchuhKarte .whiteButton {
@@ -1816,7 +1827,7 @@ input::placeholder {
 
   /* SCHUHKARTEN UNTERSEITE ANFANG */
 
-  .UniversityBlue1erInfoPoints,
+  /*.UniversityBlue1erInfoPoints,
   .BredInfoPoints,
   .ShatterdedBackboardInfoPoints,
   .BlackCementInfoPoints,
@@ -1840,12 +1851,12 @@ input::placeholder {
     width: 35vw;
     margin-bottom: 75px;
   }
-
+*/
   /* SCHUHKARTEN UNTERSEITE ENDE */
 
   /* Schuhkarten/Index ANFANG */
 
-  .card2 {
+  /*.card2 {
     grid-area: card2;
   }
   .card3 {
@@ -1860,6 +1871,7 @@ input::placeholder {
   .card6 {
     grid-area: card6;
   }
+  */
   .backgroundBox {
     width: 1000%;
     height: 70px;
@@ -1989,7 +2001,7 @@ input::placeholder {
     z-index: 1;
   }
 
-  .brandIndexS1 {
+  /*.brandIndexS1 {
     background: var(--white);
     display: grid;
     grid-template-columns: 50% 50%;
@@ -2071,7 +2083,7 @@ input::placeholder {
       "YeezyImg YeezyImg"
       "SneakerInfo ."
       "InfoList SneakerInfoText";
-  }
+  }*/
   .shoePicture {
     max-width: 220px;
     max-height: 240px;
@@ -2081,11 +2093,11 @@ input::placeholder {
   }
 
   /* UNTERSEITEN ANFANG */
-  .UnterseitenS2,
+ /* .UnterseitenS2,
   .UnterseitenS3,
   .UnterseitenS4 {
     row-gap: 70px;
   }
-
+*/
   /* UNTERSEITEN ENDE */
 }

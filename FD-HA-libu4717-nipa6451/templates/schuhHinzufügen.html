@@ -12,6 +12,7 @@
         placeholder="Hier den Namen des Schuhs eintragen"
         required
       />
+    </div>
       <label for="schuhTitel">Baureihe</label>
       <div class="input_container">
         <input
@@ -22,12 +23,13 @@
           value="{{dbData.baureiheID}}"
           required
         />
+      </div>
         {% if errors.image%}
         <p>{{errors}}</p>
         {% endif %}
-      <label for="imageUpload">Bild hochladen</label>
+      <label for="schuhImage">Bild hochladen</label>
       <input type="file" id="schuhImage" name="schuhImage" required/>
-
+      <div>
       <label for="schuhInfoText">Beschreibungstext</label>
       <input
         class="nachricht"
@@ -37,7 +39,8 @@
         placeholder="Hier den Beschreibungstext eintragen"
         required
       />
-
+    </div>
+  <div>
       <label for="schuhKommentar">Kommentar zu Schuh</label>
       <input
         class="nachricht"

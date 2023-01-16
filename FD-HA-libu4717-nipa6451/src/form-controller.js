@@ -136,7 +136,7 @@ export async function submitAddSchuhBearbeitung(ctx) {
     console.log("Form-Controller, Hiinzufügen: ", filename);
     const destFile = await Deno.open(
       path.join(Deno.cwd(), "assets", filename),
-      { create: true, write: true, truncate: true }
+      { create: true, write: true, truncate: true },
     );
     console.log("Deno CWD", Deno.cwd(), "DENO END");
     await data.schuhImageLink.stream().pipeTo(destFile.writable);
@@ -180,7 +180,7 @@ export async function submitAddSchuheHinzufügen(ctx) {
     console.log("Form-Controller, Hiinzufügen: ", filename);
     const destFile = await Deno.open(
       path.join(Deno.cwd(), "assets", filename),
-      { create: true, write: true, truncate: true }
+      { create: true, write: true, truncate: true },
     );
     console.log("Deno CWD", Deno.cwd(), "DENO END");
     await data.schuhImageLink.stream().pipeTo(destFile.writable);

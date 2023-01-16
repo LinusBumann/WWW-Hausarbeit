@@ -61,13 +61,13 @@ const router = async (ctx) => {
   }
 
   //Erklärung Nico
-  if (url.pathname.match("/Erklärung-nipa6451")) {
-    return await controller.erklärungNipa6451(ctx);
+  if (url.pathname.match("/Erklaerung-nipa6451")) {
+    return await controller.erklaerungNipa6451(ctx);
   }
 
   //Erklärung Linus
-  if (url.pathname.match("/Erklärung-libu4717")) {
-    return await controller.erklärungLibu4717(ctx);
+  if (url.pathname.match("/Erklaerung-libu4717")) {
+    return await controller.erklaerungLibu4717(ctx);
   }
 
   //Timeline
@@ -254,7 +254,8 @@ export const handleRequest = async (request) => {
   if (!ctx.request.headers.get("cookie")) {
     let sessionID = createId();
     ctx.response.headers["Set-Cookie"] =
-      sessionID = `${sessionID}; Max-Age = 604800`;
+      sessionID =
+        `${sessionID}; Max-Age = 604800`;
     ctx.sessionID = sessionID;
   } else {
     const cookie = ctx.request.headers.get("cookie");

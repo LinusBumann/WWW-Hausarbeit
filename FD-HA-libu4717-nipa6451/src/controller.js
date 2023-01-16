@@ -145,7 +145,7 @@ export async function mainDoku(ctx) {
   return ctx;
 }
 
-export async function erklärungNipa6451(ctx) {
+export async function erklaerungNipa6451(ctx) {
   //debug("@index. ctx %O", ctx.request.url);
   ctx.response.body = ctx.nunjucks.render("Erklärung-nipa6451.html", {
     nutzer: ctx.nutzer,
@@ -155,9 +155,9 @@ export async function erklärungNipa6451(ctx) {
   return ctx;
 }
 
-export async function erklärungLibu4717(ctx) {
+export async function erklaerungLibu4717(ctx) {
   //debug("@index. ctx %O", ctx.request.url);
-  ctx.response.body = ctx.nunjucks.render("Erklärung-libu4717.html", {
+  ctx.response.body = ctx.nunjucks.render("Erklaerung-libu4717.html", {
     nutzer: ctx.nutzer,
   });
   ctx.response.status = 200;
