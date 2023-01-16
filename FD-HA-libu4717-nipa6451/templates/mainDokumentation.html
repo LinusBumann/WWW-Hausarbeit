@@ -275,9 +275,9 @@
       <p>
         Im Backend haben wir uns an den Aufbau aus den Laboraufgaben gehalten.
         Zur Steuerung der Seite haben wir die server.js, app.js, controller.js,
-        form-controller.js und die model.js. Für die Daten unserer Seite, die
-        Veränderbar sind, haben wir dann noch eine Datenbank mit den passenden
-        Tabellen angelegt.
+        form-controller.js und die model.js verwendet. Für die Daten unserer
+        Seite, die Veränderbar sind, haben wir dann noch eine Datenbank mit den
+        passenden Tabellen angelegt.
       </p>
     </li>
     <li>
@@ -289,7 +289,7 @@
       <p>
         Die app.js enthält folgende Komponenten: Router-Funktion,
         serveStaticFile-Funktion, createID-Funktion, getSessionNutzer-Funktion
-        die und handleRequest-Funktion. Die handleRequest-Funktion sorgt dafür,
+        und die handleRequest-Funktion. Die handleRequest-Funktion sorgt dafür,
         dass alle Anfragen, die auf der Seite gestellt werden, richtig
         verarbeitet werden. Zunächst öffnen wir aber die Datenbank, damit die
         handleRequest diese auch nutzen kann. In der handleRequest wird dann das
@@ -298,7 +298,7 @@
         gespeichert wird. Dann wird die getSessionNutzer(ctx) aufgerufen. Die
         überprüft, ob eine Session gerade aktiv ist, also ein Nutzer eingelogt
         ist. Ist dies der Fall wird der Nutzer in das ctx-Objekt gespeichert,
-        sonst ist dieser undefinde, also nicht eingelogt. Das wird später auch
+        sonst ist dieser "undefined", also nicht eingelogt. Das wird später auch
         noch im Router für bestimmte Weiterleitungen genutzt. Als nächstes rufen
         wir dann die serveStaticFile(base, ctx) auf. Die Base sorgt dafür, dass
         die Funktion auch nur in dem Ordner, bei uns assets, Bilder und das CSS
@@ -354,7 +354,7 @@
         rufen wir eine Funktion aus dem Model auf, die uns dieses anhander der
         passenden Parameter liefert. Dieses wird dann mit dem Passwort der
         E-Mail aus der Datenbank verglichen. Ist dieses gleich wird eine Session
-        erstellt, der User also eingelogt. Ist dies nicht der Fall wird ein
+        erstellt, der User also eingeloggt. Ist dies nicht der Fall wird ein
         Fehler auf der Seite ausgegeben und der User kann sich nicht einloggen.
         Die Funktionen holen sich also immer als erstes die Daten aus dem
         Formular, rufen eine Funktion aus dem model.js auf und führen dann
