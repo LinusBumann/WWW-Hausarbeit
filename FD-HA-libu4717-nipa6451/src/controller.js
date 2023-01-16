@@ -17,7 +17,7 @@ export async function permissionsDenied(ctx) {
   ctx.response.body = ctx.nunjucks.render("permissionsDenied.html", {
     nutzer: ctx.nutzer,
   });
-  ctx.response.status = 404;
+  ctx.response.status = 200;
   ctx.response.headers["content-type"] = "text/html";
   return ctx;
 }

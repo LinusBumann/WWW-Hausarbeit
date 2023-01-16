@@ -10,12 +10,6 @@ import * as path from "https://deno.land/std/path/mod.ts";
 Use browser and IDE side-by-side.
 */
 
-// @KLUDGE: Kind of works. Do not use in production!
-
-export const isValidText = (text) => text.length >= 3;
-
-export const isValidTitle = (text) => text.length >= 1;
-
 export async function logoutUser(ctx) {
   model.deleteSession(ctx.db, ctx.sessionID);
   ctx.redirect = new Response(null, {

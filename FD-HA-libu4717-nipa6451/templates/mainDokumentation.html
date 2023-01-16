@@ -13,276 +13,165 @@
     <li>Login: nipa6451</li>
   </ol>
   <ol class="list1">
+    <h1>Frontend</h1>
     <li>
-      <h2>Erste Ideen und Konzepte</h2>
+      <h2>Ideen und Konzepte</h2>
       <p>
-        Unsere Webseite verfolgt das allgemeine Ziel dem Besucher Informationen
-        über bestimmte Schuhe und weitere Dinge zur Verfügung zu stellen.
-        Deswegen haben wir uns überlegt, dass unsere Webseite zwar übersichtlich
-        sein muss, gleichzeitig aber auch etwas mit z.B. Farben spielt, damit
-        unsere Seite nicht zu ernst wirkt. Daraus hat sich dann das Konzept
-        entwickelt, dass wir einfache Formen, wie z.B. Rechtecke nutzen, um
-        bestimmte Inhalte darstellen zu können. Gleichzeitig sollen diese auch
-        die Übersicht der Seite verbessern, weil durch die Rechtecke die Inhalte
-        besser von einander getrennt dargestellt werden können. Deswegen haben
-        wir uns auch dazu entschieden hauptsächlich neutrale Farben/Kontraste zu
-        nutzen in Form von Schwarz, Weiß und Grau. Gleichzeitig sind die Inhalte
-        aber meist eher Bunt. Deswegen haben wir uns dazu entschlossen passend
-        zu den Inhalten die jeweiligen Farben im kleinen Rahmen immer etwas an
-        zu passen.
+        Was die Idee und das Konzept der Seite angeht haben wir uns an der
+        Frontend-Hausarbeit aus dem letzten Semester orientiert, da wir diese
+        für das Frontend genutzt und um das Backend erweitert haben. Unsere
+        Webseite verfolgt das allgemeine Ziel dem Besucher Informationen über
+        bestimmte Schuhe und weitere Dinge zur Verfügung zu stellen. Zusätzlich
+        dazu sollen Nutzer, die sich einen Account erstellt haben, auch Schuhe
+        bearbeiten können. Dabei verfolgt die Seite den Ansatz eines etwas
+        eingeschrenkten Wikis inzwischen. Nur Admins können Schuhe hinzufügen,
+        aber Nutzer diese eben bearbeiten, falls dort Fehler im Text sind.
+      </p>
+    </li>
+    <li>
+      <h2>Nunjucksaufbau</h2>
+      <p>
+        Zum Rendern der einzelnen HTML-Seiten setzten wir Nunjucks ein. Dabei
+        haben wir eine grundsätzliche layout.html erstellt. Diese enthält den
+        head und body. Im body wird von der layout.html dann noch der header und
+        der footer angezeigt. Der header enthält dann unsere Navbar. Dort wird
+        dann nach Status des Logins entweder "Login" oder "Profil" gerendert,
+        gesteuert durch ein Nunjucks-"if". Dann wird mittels "block content",
+        "endblock" signalisiert, dass hier der variable Content der Seite
+        angezeigt werden soll. Unser Header und footer sind also immer gleich.
+        Der "block content", "endblock" enthält dann den Teil des HTML, der in
+        anderen HTML-Dateien festgelegt wird. Diese HTML-Dateien enthalten dann
+        einen "extends layout.html" und dann "block content", "endblock". Dieser
+        Teil wird dann also an der Position in der layout.html angezeigt. Je
+        nach Seite wird dann mit Nunjucks-Befehlen die passenden Inhalte
+        angezeigt.
       </p>
     </li>
     <li>
       <h2>Styletiles</h2>
-      <p>Wir haben insgesamt vier verschiedene Styletiles entworfen:</p>
-      <ol class="list2">
-        <li>
-          <p>
-            Da unsere Webseite das Ziel verfolgt Informationen zu vermitteln
-            stellt der 1.Styletile eine Art Laden dar. In diesem sind die
-            verschiedenen Gegenstände auf kleinen Regalen angeordnet. Zusätzlich
-            dazu mit einem kleinen Infoschild, was das „Preisschild“ darstellen
-            soll. Diesen haben wir jedoch dann nicht genutzt, da es dazu führen
-            könnte, dass unsere Webseite von den Besuchern als Verkaufsseite
-            identifiziert werden könnte, was nicht der Nutzen/ das Ziel unserer
-            Seite ist. Außerdem ist diese Art von design uns zu weit von unserer
-            primären Idee einer „cleanen“ Seite zu weit entfernt gewesen.
-          </p>
-        </li>
-        <li>
-          <p>
-            Die nächsten drei Styletiles verfolgen unser primäres Konzept einer
-            „cleanen“ Seite, die übersichtlicher ist, als aus dem 1. Styletile.
-            Diese entsprechen auch mehr unserem eigentlichen Konzept. Dabei
-            nutzen wir vor allem klare und einfache Formen und Farben mit
-            relativ wenig Konstrast. Der 2. Styletile wurde dann nicht weiter
-            verfolgt, da der Kontrast der Farben zu gering war. Weiter war uns
-            wichtiger, dass die Seite übersichtlich ist. Durch den schwarzen
-            Hintergrund und die dunklen Farben hat der Nutzer nur wenige
-            Anhaltspunkte um sich auf der Seite orientieren zu können. Deswegen
-            haben wir uns für den 4. Styletile entschieden. Dieser nutzt weiß
-            als Hintergrund für die Webseite, wodurch auch besser Farben
-            eingesetzt werden können, da diese auf dunklem Hintergrund schnell
-            nicht gut zu erkennen sind. Auch die Fonts passen besser zum Ziel
-            der Seite und wir wollten auch, dass diese sich deutlicher von
-            einander Unterscheiden. Dabei wird für große Überschriften … genutzt
-            und für den Fließtext …. Dies machen wir, da die Seite auch etwas
-            verspielter sein kann, da sie nur zur Informationsweitergabe genutzt
-            wird. Wäre dies eine Seite zum Verkauf hätten wir Fonts genutzt, die
-            die „Produkte“ besser bewerben. Auch ist es bei der Farbgebung
-            einfacher Akzentfarben zu verwenden.
-          </p>
-        </li>
-      </ol>
+      <p>
+        Wir haben insgesamt vier verschiedene Styletiles entworfen. Dabei haben
+        wir uns weiterhin, wie auch in der Frontend-Hausarbeit am 3. Styletile
+        orientiert.
+      </p>
     </li>
     <li>
-      <h2>Fertige Seite gegenüber dem Exposé</h2>
+      <h2>Fertiger Seitenaufbau</h2>
       <ol class="list2">
-        <li>
-          <p>Exposé</p>
-          <ul class="list3">
-            <li>
-              <p>Startseite</p>
-              <ul class="list4">
-                <li><p>Großes Bild mit Seitenrahmen</p></li>
-                <li>
-                  <p>Navigationsleiste</p>
-                  <ul class="list5">
-                    <li><p>Schuhe</p></li>
-                    <li><p>Accessoires</p></li>
-                    <li><p>Collectables</p></li>
-                    <li><p>About Us</p></li>
-                  </ul>
-                </li>
-                <li><p>Ausgewählte Schuhe (Bild mit Caption)</p></li>
-                <li><p>Footer (Impressum, Kontakte, ...)</p></li>
-              </ul>
-            </li>
-            <li>
-              <p>Schuhe</p>
-              <ul class="list4">
-                <li>
-                  <p>
-                    Modelle (Jordan 1 High, Jordan 1 Mid, Jordan 1 Low, usw.)
-                  </p>
-                  <ul class="list5">
-                    <li><p>Bilder mit Caption</p></li>
-                  </ul>
-                </li>
-                <li>
-                  <p>
-                    Wenn Schuhmodell angeklickt: Infos zu dem Modell, dann
-                    Unterseite (Einzelnes Modell)
-                  </p>
-                  <ul class="list5">
-                    <li><p>Einzelnes Modell</p></li>
-                  </ul>
-                </li>
-                <li><p>Bilder</p></li>
-                <li><p>Text</p></li>
-              </ul>
-            </li>
-            <li>
-              <p>Accessoires</p>
-              <ul class="list4">
-                <li>
-                  <p>Taschen (Portemonnaie, Duffle-Bag, usw.)</p>
-                  <ul class="list5">
-                    <li>
-                      <p>
-                        Wenn „Artikel“ angeklickt: Infos zu dem Modell, dann
-                        Unterseite (Einzelnes Modell)
-                      </p>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <p>Einzelnes Modell</p>
-                  <ul class="list5">
-                    <li><p>Bilder</p></li>
-                    <li><p>Text</p></li>
-                  </ul>
-                </li>
-                <li>
-                  <p>T-Shirt</p>
-                  <ul class="list5">
-                    <li>
-                      <p>
-                        Wenn „Artikel“ angeklickt: Infos zu dem Modell, dann
-                        Unterseite (Einzelnes Modell)
-                      </p>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <p>Einzelnes Modell</p>
-                  <ul class="list5">
-                    <li><p>Bilder</p></li>
-                    <li><p>Text</p></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <p>Collectables</p>
-              <ul class="list4">
-                <li>
-                  <p>Figuren (KAWS, Bearbricks)</p>
-                  <ul class="list5">
-                    <li>
-                      Wenn „Artikel“ angeklickt: Infos zu dem Modell, dann
-                      Unterseite (Einzelnes Modell)
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <p>Einzelnes Modell</p>
-                  <ul class="list5">
-                    <li><p>Bilder</p></li>
-                    <li><p>Text</p></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <p>About Us</p>
-              <ul class="list4">
-                <li><p>Namen</p></li>
-                <li><p>Instagram</p></li>
-                <li><p>FAQ</p></li>
-                <li><p>Beschreibung der Seite</p></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p>Aufbau der fertigen Website</p>
-          <ul class="list3">
-            <li>
-              <p>Startseite</p>
-              <ul class="list4">
-                <li><p>Großes Bild mit Webseitenname</p></li>
-                <li>
-                  <p>Navbar</p>
-                  <ul class="list5">
-                    <li><p>Webseitenname (Homebutton)</p></li>
-                    <li><p>Marken (Nike, Adidas, Puma, NewBalance)</p></li>
-                    <li><p>Accessoires</p></li>
-                    <li><p>Collectables</p></li>
-                    <li><p>About Us</p></li>
-                  </ul>
-                </li>
-                <li>
-                  <p>Erste Infoboxen</p>
-                  <ul class="list5">
-                    <li><p>Nike</p></li>
-                    <li><p>Adidas</p></li>
-                    <li><p>Puma</p></li>
-                    <li><p>New Balance</p></li>
-                    <li><p>Collectables</p></li>
-                    <li><p>Accessoires</p></li>
-                  </ul>
-                </li>
-                <li><p>Footer</p></li>
-              </ul>
-            </li>
-            <li>
-              <p>Marke-/Accessoires-/Collectablesunterseite</p>
-              <ul class="list4">
-                <li>
-                  <p>Segmente</p>
-                  <ul class="list5">
-                    <li>
-                      <p>
-                        Auswahl von verschiedenen Modellen (Schuhe/Taschen…)
-                      </p>
-                    </li>
-                  </ul>
-                </li>
-                <li><p>Footer</p></li>
-              </ul>
-            </li>
-            <li>
-              <p>Seite mit den genauen Informationen</p>
-              <ul class="list4">
-                <li><p>Bilder der Objekte</p></li>
-                <li><p>Infotexte zu den Objekten</p></li>
-              </ul>
-            </li>
-            <li>
-              <p>About Us</p>
-              <ul class="list4">
-                <li><p>Namen</p></li>
-                <li><p>Instagram</p></li>
-                <li><p>FAQ</p></li>
-                <li><p>Beschreibung der Seite</p></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p>Begründung für Veränderung des Seitenaufbaus von a. zu b.:</p>
-          <p>
-            Wir haben uns dazu entschieden den Aufbau der Seite noch etwas zu
-            vereinfachen. Während der Erstellung der Webseite ist uns
-            aufgefallen, dass ab der Unterseite der jeweiligen Marke sich das
-            Webseitenlayout nicht mehr verändert. Man klickt sich mehrmals durch
-            das gleiche Layout ohne eine große Veränderung fest zu stellen, bis
-            auf die Texte und Bilder. Die erste Veränderung findet dann erst
-            wieder auf der Seite für den einzelnen Schuh statt. Deswegen haben
-            wir uns dazu entschieden die Zwischenebene, wo die einzelnen Modelle
-            nochmal getrennt von einander dargestellt werden, zu streichen.
-            Stattdessen klickt man jetzt z.B. auf die Box „Jordan 1“ und erhält
-            direkt die Auflistung aller Schuhmodelle und auch den dazu passenden
-            Infotext. Dabei haben wir dann zusätzlich das Layout der Seite
-            angepasst um die Lesbarkeit zu erhöhen. Dadurch wird die, unserer
-            Meinung nach repetitive Nutzung der Seite verhindert, bei der man
-            sich mehrmals mit nur wenigen visuellen Veränderungen durch die
-            Unterseiten klickt. Auch werden gleichzeitig die Infos schneller
-            zugänglich. Der Nutzer muss sich nicht ewig durch unsere Seite
-            klicken, wenn er sich auch mal mehrere Sachen angucken möchte.
-          </p>
-        </li>
+        <p>Aufbau der fertigen Website</p>
+        <ul class="list3">
+          <li>
+            <p>Startseite</p>
+            <ul class="list4">
+              <li><p>Großes Bild mit Webseitenname</p></li>
+              <li>
+                <p>Navbar</p>
+                <ul class="list5">
+                  <li><p>Webseitenname (Homebutton)</p></li>
+                  <li><p>Marken (Nike, Adidas)</p></li>
+                  <li><p>About Us</p></li>
+                  <li>
+                    <p>Profil/Login, der sich abwechselt, je nach Status</p>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p>Erste Infoboxen</p>
+                <ul class="list5">
+                  <li><p>Nike</p></li>
+                  <li><p>Adidas</p></li>
+                </ul>
+              </li>
+              <li><p>Footer</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>Markenunterseite</p>
+            <ul class="list4">
+              <li>
+                <p>Segmente</p>
+                <ul class="list5">
+                  <li>
+                    <p>Auswahl von verschiedenen Schuh-Modelle</p>
+                  </li>
+                </ul>
+              </li>
+              <li><p>Footer</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>Seite mit den genauen Informationen</p>
+            <ul class="list4">
+              <li><p>Bilder der Objekte</p></li>
+              <li><p>Infotexte zu den Objekten</p></li>
+              <li>
+                <p>
+                  Wenn man als Admin eingelogt ist: Bearbeiten, Entfernen und
+                  Hinzufügen der Schuhe
+                </p>
+              </li>
+              <li>
+                <p>
+                  Wenn man als normaler Nutzer eingelogt ist: Bearbeiten der
+                  Schuhe
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>About Us</p>
+            <ul class="list4">
+              <li><p>Namen</p></li>
+              <li><p>Instagram</p></li>
+              <li><p>FAQ</p></li>
+              <li><p>Beschreibung der Seite</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>Login</p>
+            <ul class="list4">
+              <li><p>E-Mail Eingabefeld</p></li>
+              <li><p>Passwort Eingabefeld</p></li>
+              <li><p>Button zum einloggen</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>Profilseite</p>
+            <ul class="list4">
+              <li><p>Anzeige von Vorname, Nachnahme und E-Mail</p></li>
+              <li><p>Logout-Button</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>Schuhe Bearbeiten-Seite</p>
+            <ul class="list4">
+              <li><p>Eingabefeld: Schuhname</p></li>
+              <li><p>Feld zum Bild hochladen</p></li>
+              <li><p>Eingabefeld: Beschreibungstext</p></li>
+              <li><p>Eingabefeld: Kommentar zum Schuh</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>Schuhe Entfernen-Seite</p>
+            <ul class="list4">
+              <li>
+                <p>
+                  Eingabefeld für den Namen des Schuhs, der entfertn werden soll
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>Schuhe Hinzufügen-Seite</p>
+            <ul class="list4">
+              <li><p>Eingabefeld: Schuhname</p></li>
+              <li><p>Eingabefeld: Baureihe</p></li>
+              <li><p>Feld zum Bild hochladen</p></li>
+              <li><p>Eingabefeld: Beschreibungstext</p></li>
+              <li><p>Eingabefeld: Kommentar zum Schuh</p></li>
+            </ul>
+          </li>
+        </ul>
       </ol>
     </li>
 
@@ -303,15 +192,10 @@
     <li>
       <h2>Auswahl der Farben</h2>
       <p>
-        Bei den Grundfarben haben wir uns an neutralen Farben/Kontrasten
-        orientiert. Diese sind Schwarz, Weiß und Grau. Uns ist aber von Anfang
-        an klar gewesen, dass die reine Nutzung dieser drei Farben die Seite zu
-        trist wirken lässt. Deswegen haben wir uns dazu entschieden passend zu
-        den Farben der Logos, Schuhe usw. jeweils die passenden Farben als
-        Akzentfarben zu nutzen. Dadurch entsteht z.B. eine Verbindung des „Mehr
-        Anzeigen“-Button mit dem Bild, das gezeigt wird. Dadurch sieht trotz des
-        ähnlichen Designs keine Seite wie die andere aus, da immer
-        unterschiedliche Akzentfarben vorhanden sind.
+        Bei den Farben haben wir uns an neutralen Farben/Kontrasten orientiert.
+        Diese sind Schwarz, Weiß und Grau. Uns ist aber von Anfang an klar
+        gewesen, dass die reine Nutzung dieser drei Farben die Seite zu trist
+        wirken lässt.
       </p>
     </li>
     <li>
@@ -376,14 +260,272 @@
         Zum Zeitpunkt der Erstellung unserer Webseite liegt uns keine
         Genehmigung zur Nutzung der Bilder vor. Somit darf diese Seite nicht
         veröffentlicht oder in jeglicher öffentlicher Form genutzt werden.
-        Nutznug des Codes ist ohne die Verwendung der Bilder jedoch jederzeit
+        Nutzung des Codes ist ohne die Verwendung der Bilder jedoch jederzeit
         möglich.
-        <a href="../kollophon.html">Hier geht es zum Kolophon</a>
+        <a href="/kollophon">Hier geht es zum Kolophon</a>
       </p>
       <p>
-        <a href="Erklärung-libu4717.html">Erklärung: Linus Bumann / </a>
-        <a href="Erklärung-nipa6451.html">Erklärung: Nico Paulsen</a>
+        <a href="/Erklärung-libu4717">Erklärung: Linus Bumann / </a>
+        <a href="/Erklärung-nipa6451">Erklärung: Nico Paulsen</a>
       </p>
+    </li>
+    <h1>Backend</h1>
+    <li>
+      <h2>Konzepte</h2>
+      <p>
+        Im Backend haben wir uns an den Aufbau aus den Laboraufgaben gehalten.
+        Zur Steuerung der Seite haben wir die server.js, app.js, controller.js,
+        form-controller.js und die model.js. Für die Daten unserer Seite, die
+        Veränderbar sind, haben wir dann noch eine Datenbank mit den passenden
+        Tabellen angelegt.
+      </p>
+    </li>
+    <li>
+      <h2>server.js</h2>
+      <p>Die server.js sorgt dafür, dass unsere Seite gesartet werden kann.</p>
+    </li>
+    <li>
+      <h2>app.js</h2>
+      <p>
+        Die app.js enthält folgende Komponenten: Router-Funktion,
+        serveStaticFile-Funktion, createID-Funktion, getSessionNutzer-Funktion
+        die und handleRequest-Funktion. Die handleRequest-Funktion sorgt dafür,
+        dass alle Anfragen, die auf der Seite gestellt werden, richtig
+        verarbeitet werden. Zunächst öffnen wir aber die Datenbank, damit die
+        handleRequest diese auch nutzen kann. In der handleRequest wird dann das
+        ctx-Objekt erstellt, dass alle wichtigen Daten enthält. Danach wird dann
+        überprüft, ob eine sessionID vorhanden ist, die dann in das ctx-Objekt
+        gespeichert wird. Dann wird die getSessionNutzer(ctx) aufgerufen. Die
+        überprüft, ob eine Session gerade aktiv ist, also ein Nutzer eingelogt
+        ist. Ist dies der Fall wird der Nutzer in das ctx-Objekt gespeichert,
+        sonst ist dieser undefinde, also nicht eingelogt. Das wird später auch
+        noch im Router für bestimmte Weiterleitungen genutzt. Als nächstes rufen
+        wir dann die serveStaticFile(base, ctx) auf. Die Base sorgt dafür, dass
+        die Funktion auch nur in dem Ordner, bei uns assets, Bilder und das CSS
+        holt. Dann rufen wir die router() auf. Diese überprüft dann anhand der
+        url, ob es diese gibt. Falls es diese nicht gibt, wird man auf die
+        404-Errorseite geleitet. Gibt es den pathname rufen wir die passende
+        Funktion im controller oder form-controller auf. Diese erläutern wir
+        später. Der router sorgt also dafür, dass die richtige Seite aufgerufen
+        werden kann.
+      </p>
+    </li>
+    <li>
+      <h2>controller.js</h2>
+      <p>
+        Die Funktionen des controllers werden durch den Router aufgerufen. Diese
+        steuern dann den Aufruf der passenden HTML-Seite mit zusätzlichen
+        Parametern, falls diese nötig sind. Dabei ist der Aufbau immer der
+        gleiche. Zunächst wird der ctx.respones.body gesetzt. Dieser enthält
+        dann den render der jeweiligen HTML-Datei, die zusätzlich den Nutzer
+        übergeben bekommt. Dann wird der Status der Anfrage und der Header
+        gesetzt. Dies wird dann im ctx-Objekt returnt. Je nach Art der Seite
+        werden dann noch weitere Daten in den respones.body übergeben, wie z.B.
+        verschiedene IDs oder ähnliches, die nötig sind, um die richtigen
+        Komponenten zu rendern. Der Nutzer wird aber immer mit übergeben, da
+        sich durch diesen Entscheidet welche Buttons oder Elemente in der Navbar
+        angezeigt werden. Z.B. wenn man von der Index in die Markenseite
+        wechselt muss dann zusätzlich eine Funktion auf dem Model aufgerufen
+        werden. In dem Beispiel wird dann in das const-Objekt der passende
+        Hersteller gespeichert. Diese sind mit IDs in der Datenbank gespeichert.
+        Damit wir in die Modelfunktion auch die richtige ID übergeben wird im
+        Router in der app.js vorher die ID durch einen split der URL passend
+        ausgelesen und in ctx.params.herstellerID gespeichert. Dadruch ist es
+        dann möglich diesen params an die Modellfunktion zu übergeben. Diese
+        liefert dann die passende ID die dann in dbData gespeichert wird. Dieses
+        Vorgehen wird in jeder Funktion durchgeführt, in der IDs nötig sind. Die
+        Funktion aus dem Model variiert dabei natürlich.
+      </p>
+    </li>
+    <li>
+      <h2>form-controller.js</h2>
+      <p>
+        Die form-controller ist für die Steuerung nötig, die für Formulare der
+        Webseite genutzt werden. Beim Login zum Beispiel steuert die passende
+        Funktion, den POST des Logins, also das senden der Daten an den Server,
+        die der Nutzer eingegeben hat, um sich ein zu loggen. Im Router muss
+        dabei unterschieden werden, ob es sich um ein GET oder POST handelt. Bei
+        GET wird die Seite lediglich gerendert, beim POST wird dann die Funktion
+        aufgerufen, die Daten an den Server schickt. Um an die Daten aus dem
+        Formular ran zu kommen werden diese Daten zunächst im ein const formData
+        gespeichert. Dann erstellen wir uns ein Objekt und speichern in die
+        Komponenten dieses dann die passenden Eintäge des Formulars durch
+        formData.get. Um dann für den Login das Passwort des Nutzers zu erhalten
+        rufen wir eine Funktion aus dem Model auf, die uns dieses anhander der
+        passenden Parameter liefert. Dieses wird dann mit dem Passwort der
+        E-Mail aus der Datenbank verglichen. Ist dieses gleich wird eine Session
+        erstellt, der User also eingelogt. Ist dies nicht der Fall wird ein
+        Fehler auf der Seite ausgegeben und der User kann sich nicht einloggen.
+        Die Funktionen holen sich also immer als erstes die Daten aus dem
+        Formular, rufen eine Funktion aus dem model.js auf und führen dann
+        weitere, je nach Funktion, spezielle Schritte aus. Zusätzlich dazu haben
+        wir noch drei Funktionen geschrieben, die für den Upload von Bildern
+        bestimmt sind. Dabei wird die validateImage() immer dann aufgerufen,
+        wenn ein Bild hochgeladen wird und überprüft ob dieses vorhadnen ist.
+        Zusätzlich ruft diese wiederrum die isMimetypeOK() auf, die überprüft,
+        ob das Bild als Format "jpep", "png", oder "svg" hat, da wir nur diese
+        Formate haben möchten. Ist das Bild dann valide generieren wir mit
+        generateFilename() einen zufälligen Dateinamen, damit andere Bilder
+        nicht überschrieben werden. Danach wird das Bild dann noch in den
+        richtigen Ordner, bei uns "Bilder", geschoben.
+      </p>
+    </li>
+    <li>
+      <h2>model.js</h2>
+      <p>
+        Die model.js ist dafür da, an die die Funktionen, die Funktionen aus der
+        model.js aufrufen, die passenden Daten zurück zu liefern. Dies passiert
+        dann mittels SQL-Befehlen, die die richtigen Daten aus unserer Datenbank
+        holen. Die addRegister() wird z.B. in der form-controller.js aufgerufen,
+        wenn sich ein Nutzer registrieren möchte. Zunächst wird das eingegebene
+        Passwort des Nutzers in einen Hashwert umgewandelt. Dann wird der
+        passende SQL-Befehl ausgeführt, der die Daten des Nutzers in der
+        richtigen Tabelle in der Datenbank speichert. Eine andere SQL-Abfrage
+        erfolgt z.B. in der getSchuhID(). Dort wird zunächst die query
+        festgelegt. In diesem Fall sollen alle Schuhe ausgewählt werden, die die
+        passende SchuhID besitzen. Im WHERE wird dann ein Platzhalter genutzt.
+        So können SQL-Injektions verhindert werden. Der return gibt dann durch
+        db.queryEntries(query, {schuhID: schuhID}); den Schuh zurück, der durch
+        die query "selected" wird. Die geschweiften Klammern enthalten dabei den
+        Parameter, der für den Platzhalter :schuhID eingesetzt wird. So kann
+        dann der passende Eintrag an z.B. die form-controller.js geliefert
+        werden. Am Ende ist die model.js also für alle Abfragen mit SQL
+        zuständig und holt die passenden Daten aus der Datenbank.
+      </p>
+    </li>
+    <li>
+      <h2>Datenbankaufbau</h2>
+
+      <ol class="list2">
+        <p>
+          Die Datenbank enthält bei uns fünf Tabellen, die verschiedene Daten
+          verwalten. All diese Tabellen enthalten dann die Daten, die mittels
+          SQL-Befehl durch die model.js abgerufen werden können.
+        </p>
+        <ul class="list3">
+          <li>
+            <p>
+              baureihen: Enthält die nötigen Daten für die einzelnen Baureihen
+            </p>
+            <ul class="list4">
+              <li>
+                <p>baureiheID: Primärschlüssel und enthält ID der Baureihe</p>
+              </li>
+              <li>
+                <p>
+                  herstellerID: Hier wird die ID des Herstellers eingetragen,
+                  die eine foreign Key zur Tabelle hersteller ist
+                </p>
+              </li>
+              <li><p>baureiheName: Enthält den Namen der Baureihe</p></li>
+              <li><p>baureiheImageLink: Enthält den Link des Bildes</p></li>
+              <li>
+                <p>baureiheDescriptionText: Enthält den Beschreibungstext</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>hersteller: Enthält die nötigen Daten für die Hersteller</p>
+            <ul class="list4">
+              <li>
+                <p>
+                  herstellerID: Enthält die ID des Herstelers und
+                  Primärschlüssel
+                </p>
+              </li>
+              <li><p>herstellerName: Enthält den Namen des Herstellers</p></li>
+              <li><p>herstellerImageLink: Enthält den Link des Bildes</p></li>
+              <li>
+                <p>
+                  herstellerText: Enthält den Beschreibungstext für den
+                  Hersteller
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>schuh: Enthält die nötigen Daten für die Schuhe</p>
+            <ul class="list4">
+              <li>
+                <p>schuhID: Enthält die ID des Schuhs und Primärschlüssel</p>
+              </li>
+              <li>
+                <p>
+                  baureiheID: Dort wird die ID der passenden Baureihe
+                  eingetragen, Foreign Key zur baureiheID der Tabelle baureihe
+                </p>
+              </li>
+              <li><p>schuhName: Enthält Name des Schuhs</p></li>
+              <li><p>schuhImageLink: Enthält den Link des Bildes</p></li>
+              <li>
+                <p>schuhInfoText: Enthält den Beschreibungstext des Schuhs</p>
+              </li>
+              <li><p>kommentare: Enthält Kommentar zum Schuh</p></li>
+            </ul>
+          </li>
+          <li>
+            <p>sessions: Enthält die nötigen Daten für die Login-Session</p>
+            <ul class="list4">
+              <li>
+                <p>
+                  sessionID: Hier wird die ID der Session gespeichert,
+                  Primärschlüssel
+                </p>
+              </li>
+              <li>
+                <p>
+                  userEmail: Enthält die Email des Nuters, der eingelogt ist,
+                  Foreign Key zu email aus der Tabelle userData
+                </p>
+              </li>
+              <li>
+                <p>
+                  expirationDate: Enthält das Ablaufdatum an der die Session
+                  automatisch endet
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>userData: Enthält die nötigen Daten für die Nutzer</p>
+            <ul class="list4">
+              <li>
+                <p>userID: Hier wird die ID des Users gespeichert</p>
+              </li>
+              <li>
+                <p>vorname: Enthält den Vornamen des Nutzers</p>
+              </li>
+              <li>
+                <p>nachname: Enthält den Nachnamen des Nutzers</p>
+              </li>
+              <li>
+                <p>
+                  email: Enthält die email des Nutzers, die für den Login nötig
+                  ist, Primärschlüssel
+                </p>
+              </li>
+              <li>
+                <p>
+                  passwort: Enthält den Hashwert des Passworts, das der Nutzer
+                  beim registrieren angegeben hat
+                </p>
+              </li>
+              <li>
+                <p>
+                  admin: Enthält den Eintrag "admin", bei normalen Nutzern immer
+                  auf Null
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          All diese Daten in den Tabellen können durch die model.js abgerufen
+          werden. Da diese Daten alle verändert werden können nutzen wir diese
+          dann auf den HTML-Seiten, um die passenden Inhalte per Nunjucks dann
+          anzuzeigen.
+        </p>
+      </ol>
     </li>
   </ol>
 </main>

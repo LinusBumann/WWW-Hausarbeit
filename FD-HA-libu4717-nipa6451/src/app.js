@@ -217,8 +217,6 @@ const serveStaticFile = async (base, ctx) => {
   return ctx;
 };
 
-const db = new DB("data/sneakpeakdata.sqlite");
-
 const createId = () => {
   const array = new Uint32Array(64);
   crypto.getRandomValues(array);
@@ -237,6 +235,8 @@ const getSessionNutzer = async (ctx) => {
   }
   return ctx;
 };
+
+const db = new DB("data/sneakpeakdata.sqlite");
 
 export const handleRequest = async (request) => {
   let ctx = {

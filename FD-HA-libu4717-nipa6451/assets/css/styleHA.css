@@ -1353,7 +1353,7 @@ input::placeholder {
 }
 
 .ZeitleistenBild {
-  width: 60vw;
+  max-width: 350px;
 }
 
 .Nutzungserklärung {
@@ -1414,7 +1414,7 @@ input::placeholder {
     color: var(--white);
     word-wrap: break-word;
   }
-  
+
   .SchuhKarte img {
     position: relative;
     bottom: -20px;
@@ -1466,7 +1466,6 @@ input::placeholder {
     color: rgba(255, 255, 255, 1);
     margin-right: 20%;
     transition: 0.7s;
-    
   }
 
   .SchuhKarte:hover img {
@@ -1789,7 +1788,6 @@ input::placeholder {
   .shoePicture {
     max-width: 200px;
     max-height: 220px;
-  
   }
 
   .ulFarben {
@@ -1889,7 +1887,6 @@ input::placeholder {
   }
   .SchuhKarte .content p {
     width: 15vw;
-   
   }
   .SchuhKarte:hover img {
     margin-left: 270px;
