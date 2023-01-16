@@ -13,7 +13,25 @@
     <li>Login: nipa6451</li>
   </ol>
   <ol class="list1">
-    
+    <li>
+      <h1>Allgemeine Überlegungen zur Website</h1>
+      <p>        
+        Die Anwendung ist eine Website für eine fiktiv entstandene Firma. Sie soll 
+        den Nutzern die Möglichkeit geben, sich über Schuhe zu informieren. 
+        Nutzer können Schuhkarten bearbeiten, Admins können komplette Schuhkarten hinzufügen oder entfernen. Darüber hinaus ist eine Registrierung und Anmeldung auf der Website möglich.
+        Sollten die Daten der Website veröffentlicht werden, dann gelangen die E-Mail Adressen der User an die Öffentlichkeit. 
+        Die Passwörter werden mittels eines Passwort-Hashing-Verfahrens in eine Codefolge umgewandelt. So ist das herausfinden der Userpasswörte nahezu unmöglich.
+        Die veränderbaren Inhaltstypen der Website beschränken sich auf Texte und Bilder. 
+        Die Links über die Ebenen "Hersteller" und "Baureihen" werden anhand der Datenbankeinträge erstellt.
+        So gelangt der Nutzer über den Link "hersteller/1" zu allen Baureihen, des in der Datenbank unter 
+        der HerstellerID 1 eingetragenen Herstellers.
+        Alle Funktionen und Ihnalte der Anwendung wurden gemeinsam im mehreren Sessions erarbeitet. 
+        Auf der Indexseite werden die Schuhhersteller dargestellt. Wählt ein Nutzer einen Hersteller aus, so 
+        gelangt er zu den verschiedenen Baureihen des Hersteller. Hat der Nutzer 
+        dann eine Baureihe ausgewählt, werden ihm alle Schuhe dieser Baureihe angezeigt. Um die Website ansehlicher zu machen, wurde als externe
+        Komponente das styleHA.css verwendet. Ein aufgetretenes Problem bei der Entwicklung der Website war, dass zum Beispiel auf die app.js per einfachen Link im Suchfeld zugegriffen werden Konnte. 
+        Durch die serveStaticFile() werden die Daten ausschließlich aus dem "assets" Order aufgerufen. Auf andere Ordner kann daruch nicht mehr zugegriffen werden.</p>
+    </li>
     <li>
       <h1>Frontend</h1>
       <h2>Ideen und Konzepte</h2>
